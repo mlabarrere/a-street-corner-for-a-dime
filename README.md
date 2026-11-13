@@ -1,6 +1,6 @@
 # A Street Corner for a Dime
 
-Where did Don Rosa's ten-year-old Scrooge McDuck earn his first coin, and how often would a match that good turn up by chance? The paper (`paper/main.pdf`, version 1.5) tests the shoeshine scene of *The Last of the Clan McDuck* and *Of Ducks, Dimes and Destinies* against the Ordnance Survey 1:500 plans of Glasgow (1857–58, 1892–94) and sampled Post Office directories (1860–1906). Every corner of a declared window is censused (30 corners; 46 orientations tested, 14 untestable, every orientation read in the directory), every point of the facing frontage being a possible watching point. The drawn relations (no lane as either street; the clothier's shop fronting the side street) leave 8 corners with the handedness of the inked corner view and 14 without it. In the 1877–78 directory, 1 of them (2 without the handedness convention) has a clothier whose shop fronts the side street and licensed premises facing it across that street: Jamaica Street × Howard Street NE (and Jamaica Street × Argyle Street SW). The pair occurs at 3 of the 30 corners of the window, one of them the later Paisley's corner, which fails the drawn geometry; at least one survivor would show it 62% of the time by chance, and the evidence raises the odds that Rosa drew a real corner of this window by a factor of 1.2–1.5 (at most 1.7 in any variant). A first coding, which let a lane count as a street and the clothier front either street, also returned Argyle Street × Adam's Court Lane SE (82% by chance); the two requirements were added after it, and both codings are reported. Restricted to the openings recorded in 1857, the census returns version 1.4's corners and its single match.
+Where did Don Rosa's ten-year-old Scrooge McDuck earn his first coin, and how often would a match that good turn up by chance? The paper (`paper/main.pdf`, version 1.5, DOI [10.5281/zenodo.24205196](https://doi.org/10.5281/zenodo.24205196)) tests the shoeshine scene of *The Last of the Clan McDuck* and *Of Ducks, Dimes and Destinies* against the Ordnance Survey 1:500 plans of Glasgow (1857–58, 1892–94) and sampled Post Office directories (1860–1906). Every corner of a declared window is censused (30 corners; 46 orientations tested, 14 untestable, every orientation read in the directory), every point of the facing frontage being a possible watching point. The drawn relations (no lane as either street; the clothier's shop fronting the side street) leave 8 corners with the handedness of the inked corner view and 14 without it. In the 1877–78 directory, 1 of them (2 without the handedness convention) has a clothier whose shop fronts the side street and licensed premises facing it across that street: Jamaica Street × Howard Street NE (and Jamaica Street × Argyle Street SW). The pair occurs at 3 of the 30 corners of the window, one of them the later Paisley's corner, which fails the drawn geometry; at least one survivor would show it 62% of the time by chance, and the evidence raises the odds that Rosa drew a real corner of this window by a factor of 1.2–1.5 (at most 1.7 in any variant). A first coding, which let a lane count as a street and the clothier front either street, also returned Argyle Street × Adam's Court Lane SE (82% by chance); the two requirements were added after it, and both codings are reported. Restricted to the openings recorded in 1857, the census returns version 1.4's corners and its single match.
 
 ## Reproduce
 
@@ -42,7 +42,7 @@ Maps: Ordnance Survey 1:500 town plans of Glasgow, surveyed 1857–58 and 1892�
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24170392.svg)](https://doi.org/10.5281/zenodo.24170392)
 
-Labarrère, M. (2026). *A Street Corner for a Dime: Don Rosa's Glasgow and the Chance of a Match* (preprint, version 1.5). Zenodo. https://doi.org/10.5281/zenodo.24170392
+Labarrère, M. (2026). *A Street Corner for a Dime: Don Rosa's Glasgow and the Chance of a Match* (preprint, version 1.5). Zenodo. https://doi.org/10.5281/zenodo.24205196
 
 ```bibtex
 @misc{labarrere2026streetcorner,
@@ -51,12 +51,12 @@ Labarrère, M. (2026). *A Street Corner for a Dime: Don Rosa's Glasgow and the C
   year      = {2026},
   publisher = {Zenodo},
   note      = {Preprint, version 1.5},
-  doi       = {10.5281/zenodo.24170392},
-  url       = {https://doi.org/10.5281/zenodo.24170392}
+  doi       = {10.5281/zenodo.24205196},
+  url       = {https://doi.org/10.5281/zenodo.24205196}
 }
 ```
 
-The concept DOI above resolves to the latest published version; version 1.4 is [10.5281/zenodo.24195132](https://doi.org/10.5281/zenodo.24195132). Author ORCID: [0009-0006-0822-3649](https://orcid.org/0009-0006-0822-3649).
+The badge's concept DOI resolves to the latest published version; the citation above is version 1.5 ([10.5281/zenodo.24205196](https://doi.org/10.5281/zenodo.24205196)); version 1.4 is [10.5281/zenodo.24195132](https://doi.org/10.5281/zenodo.24195132). Author ORCID: [0009-0006-0822-3649](https://orcid.org/0009-0006-0822-3649).
 
 ## Licences
 

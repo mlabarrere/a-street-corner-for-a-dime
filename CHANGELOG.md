@@ -1,6 +1,6 @@
 # Changelog
 
-## Version 1.5 (13 November 2026)
+## Version 1.5 (13 November 2026; DOI 10.5281/zenodo.24205196)
 
 - Census of every corner of a declared window (30 corners), every point of the facing frontage a possible watching point; the openings recorded in 1857 kept as a sensitivity. Every orientation of every corner is read in the 1877–78 directory, tested or not.
 - New chance analysis (`src/chance.py`, SciPy): hypergeometric null over the corners of the window and a Bayes factor for "the scene shows a real corner"; full grid of variants in `data/chance_multiverse.csv`.
