@@ -1,3 +1,5 @@
+> Superseded in version 1.5. Counts, corner numbers, table numbers and the "probable identification" below refer to version 1.4; version 1.5 finds that a match like Jamaica and Howard NE would arise by chance more often than not (see the paper and README.md).
+
 # Evidence provenance
 
 This ledger distinguishes the status of the evidence used in the paper.

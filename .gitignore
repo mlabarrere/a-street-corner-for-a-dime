@@ -7,3 +7,7 @@ paper/*.blg
 paper/*.fls
 paper/*.fdb_latexmk
 __pycache__/
+paper/anon.pdf
+
+# Local copies of every source consulted (page images, OCR, panels): kept for the analyses, never published
+sources/

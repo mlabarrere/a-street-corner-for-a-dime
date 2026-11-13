@@ -1,6 +1,6 @@
 # Post Office Annual Glasgow Directory: lines relied on
 
-Internet Archive identifiers `postofficeannual<yy><yy>gla` (NLS digitisation), OCR text at `https://archive.org/download/<id>/<id>_djvu.txt`. Quotations as the OCR prints them, except lines marked "†", which were checked on the page image by the author and are transcribed from it. Absence from OCR is "not found", never evidence of absence. Compiled 12 November 2026 from the Internet Archive OCR text, with AI OCR assistance as disclosed in the paper.
+Internet Archive identifiers `postofficeannual<yy><yy>gla` (NLS digitisation), OCR text at `https://archive.org/download/<id>/<id>_djvu.txt`. Quotations as the OCR prints them, except lines marked "†", which were checked on the page image and are transcribed from it (by the author, or, where the row says so, with AI assistance and the crops shown to the author). Absence from OCR is "not found", never evidence of absence. Compiled 12 November 2026 from the Internet Archive OCR text, with AI OCR assistance as disclosed in the paper.
 
 ## 1877-78 (`postofficeannual187778gla`)
 
@@ -8,7 +8,8 @@ Internet Archive identifiers `postofficeannual<yy><yy>gla` (NLS digitisation), O
 |---|---|
 | General section, p. 351 (leaf 367) | "Morrison, Hugh, clothier and Highland costume maker, 51 and 53 Jamaica street, and 1, 3, 5, 9 Howard st.; house, 20 Brandon place, West George street" † |
 | Street section, Jamaica Street east side, p. 575 (leaf 591) | "53 Morrison, Hugh, clothier / Howard street intersects / 57, 59 Gordon, Robt. / 61 Buchanan & Johnson, clothrs. / 63 Grindlay, M. tobacconist / 65 Adamson, A. & W. clothiers" † |
-| Street section, Jamaica Street, head | "1, 3, 5, 7 Simpson, R. & Sons" (general: "Simpson, Robert, & Sons, costumiers, silk mercers"); "11 Paxton, Matthew, spirit mer." |
+| Street section, Jamaica Street east side, head, p. 575 (leaf 591) | "1, 3, 5, 7 Simpson, R. & Sons / 9, 11 Rutherford & Co. / 11 Paxton, Matthew, spirit mer. / Cranston, Robert / 19 Arnott & Co. merchants" † (page image checked 13 November 2026 with AI assistance, crops shown to the author) |
+| Street section, Jamaica Street west side, Argyle Street end, p. 576 (leaf 592) | "20 Foote, Son, & Co. warehousem. / 12 to 16 Bell, Tomlin, & Co. / 10 Gourlie & Barnet, upholsterers / 8 Scott, E. & S. shoemakers / 6 Clark, D. C. & Co. / 2 Blackwood, J. & Sons, cloths." † (page image checked 13 November 2026 with AI assistance, crops shown to the author) |
 | Street section, Howard Street, p. 573 (leaf 589) | "8, 10, 12, Westlands, Laidlaw, & Co. hat & cap manufs. / 6 Turner, J. B. spirit dealer / 2 Falconer, & Co." † |
 | Wine and spirit merchants list | "Turner, J. B. 6 W. Howard st. and 20 Lancefield street" |
 | Street section, Howard Street | "11, 15 Corson & Currie" (general: "Corson & Currie, fish, ice, and oyster merchants"); "21 M'Lauchlan, Patrick" (general: "M'Laughlin, Patrick, wine and spirit merchant, 21 Howard street"); "27 Flockart, W. clothier" |
@@ -19,7 +20,29 @@ Internet Archive identifiers `postofficeannual<yy><yy>gla` (NLS digitisation), O
 | General section, p. 370 | "Paisley, Peter (of S.S. Clothing Co.), 373 Govan st."; street section: "South Side Clothing Company, 139, 141 Norfolk street" |
 | Oswald Street section (odd side) | "17 Fleming ... Aitken & Waddell, merchants" (general: "Aitken & Waddell, produce merchants, 17 Oswald st"); even side, p. 600 (leaf 616): "42 Kirkham, Thos. spirit dealer / .38 Taylor & Ferguson, wine mer. / 36 Macfarlane, J. & J. agents / ... / 28, 30, 32 Stewart, John, & Co. / Stewart, James Reid / Provanhall Coal Co. / 24, 26 Sinclair, Moorhead, & Co. / Taylor, Laughland, & Co. / Macarthm- Bros, ship owners / Cree, Renison, & Co. / 22 Wilson, J. & R. ship stores"; the OCR does not mark where Ann Street crosses this sequence, and the directory does not state which side of Oswald Street carries the even numbers |
 
-## Corners entering only under sensitivity settings, 1877-78 (`postofficeannual187778gla`)
+## Window-complete coding of version 1.5, 1877-78 (`postofficeannual187778gla`, OCR only, not yet checked on the page images)
+
+These lines support the rows of `data/trades_1877.csv` added or recoded in version 1.5 (column `checked` = `ocr`). Coding rules: `README.md`, "Directory coding".
+
+| Where | Line |
+|---|---|
+| Argyle Street section, south side | "183 Campbell, J. confectioner / 185 Donald, Jas. jun. clothier / Adam's Court Lane / 187 Fraser, A. spirit merchant / 189 Craig Brothers, warehousemen" |
+| Argyle Street section, south side | "165 Allan & Stewart / St. Enoch square here / 167 Pigott & Co., hatters"; general: "Allan & Stewart, general warehousemen, 165 Argyle street and 3 St. Enoch square"; "Pigott & Co., hat and cap manufacturers, 167 Argyle street and 2 St. Enoch's square" |
+| Argyle Street section, south side, p. 505 (leaf 521) | "199 Matthew Paxton / 205 Dobbie, John, ironmonger / 207 Simpson, R. & Sons / 209, 211 Blackwood, J. & Sons" † (page image checked 13 November 2026 with AI assistance, crops shown to the author) |
+| General section | "Simpson, Robert, & Sons, costumiers, silk mercers, clothiers, outfitters, and general warehousemen, 1, 3, 5, 7 Jamaica street, and 203, 205, and 207 Argyle street" (one entry) |
+| General section, p. 105 (leaf 121) | "Blackwood, James, & Son, clothiers and outfitters, 211 Argyle st. and 2 Jamaica street." † (page image checked 13 November 2026 with AI assistance, crops shown to the author) |
+| General section, p. 407 (leaf 423) | "Rutherford & Co., restaurateurs, wine and spirit merchants, 9 and 11 Jamaica street, 31 and 35 Gallowgate, and 11 Watson street." † (page image checked 13 November 2026 with AI assistance, crops shown to the author) |
+| General section | "PAXTON, Matthew, wine and spirit merchant, 199 Argyle street and 11 Jamaica street" |
+| Argyle Street section, north side, west of Union Street | "-Alston street here / Watson, C. spirit merchant / Cansh, Thomas, & Co. / Brooke, Bond, & Co. / Craig, George, hatter / Gordon, David F. / -Union street intersects"; general: "Watson, Charles, spirit merchant, 196 Argyle street" |
+| Argyle Street section, north side, east of Union Street | "174 City of Glasgow Bank ... 172 Union Court ... Pender's Argyle Hotel"; general: "Pender, Wm., Argyle hotel, 6 Union street and 172 Argyle street" |
+| Argyle Street section, north side, at Mitchell Street | "160 M'Letchie, C. confectioner / 158 Stewart, Alex., clothier / Mitchell street here / 156 Reid, Henry, ironmonger / 154 M'Ausland, Wm., bootmaker" |
+| Jamaica Street section, west side, Argyle Street to Ann Street | "40 Blair, Campbell, tea mer. / 36 Gardner, A. & Son / Scott, E. & S. shoe warehouse / M'Geoch & Co. warehousemen / Gillies, A. & Co. / 20 Foote, Son, & Co. warehousem. / 12 to 16 Bell, Tomlin, & Co." (with Clark, Scott and Blackwood towards Argyle Street): no spirit dealer on this block |
+| General section | "Thomson, James, clothier and colonial outfitter" (OUTFITTERS list); Jamaica Street section, west side: "to 92 Thomson, James"; Broomielaw section: "2 Thomson, James" |
+| Oswald Street section, east (even) side | "84 Garven, J. & Co. ... Moses, Son, & Davis, cloths. ... Ballantyne, John, clothier" (first even entries, Broomielaw end); "42 Kirkham, Thos. spirit dealer / .38 Taylor & Ferguson, wine mer. / 36 Macfarlane, J. & J. agents"; general: "Taylor & Ferguson, wholesale wine and spirit mers. 38 Oswald st.; goods entrance, 37 & 45 Ann st." |
+| General section | "Smith & Simons, seed merchants and nurserymen" (36, 38 Howard street) |
+| Street index | "Wood Lane, 30 Broomielaw"; general: "Graham, J. L., tailor and clothier, 38 Broomielaw" |
+
+## Other corners of the window, 1877-78 (`postofficeannual187778gla`)
 
 Read in the OCR text only (no † in this section); leaves from the volume's scan data (leaf = page + 16 in the body of the volume).
 
@@ -85,3 +108,18 @@ Numbers 60-68 on the west side look stable from 1860-61 ("68 Colosseum buildings
 ## Smith's Court, 62 Jamaica Street (street index)
 
 Present in 1860-61 ("02" = 62, OCR), 1865-66, 1870-71, 1876-77, 1877-78, 1878-79, 1880-81, 1881-82, 1885-86. Absent in 1890-91, 1892-93, 1895-96, 1905-06 (the index runs from "Smith's Court, 62 Brunswick street and 53 Candleriggs" straight to "Smith's Place"). No source read says whether it was a covered pend or ties it to the opening JW6 of the 1857 plan other than the number 62.
+
+## Quay-side orientations and other lines added after review, 1877-78 (`postofficeannual187778gla`, OCR only)
+
+| Where | Line |
+|---|---|
+| General section | "Thomson, James, clothier and colonial outfitter ; ho. Linden, Partick hill." (the business address is lost in the OCR) |
+| Street section, Jamaica Street, the Broomielaw end, p. 576 (leaf 592) | "85, 87 Barr, John, spirit mer. / 96 to 92 Thomson, James / 84, 82 Blacklock, D., & Co." † (page image checked 13 November 2026 with AI assistance, crop shown to the author): the last entry of the east side, then the first of the west side |
+| Street section, Broomielaw | "2 Thomson, James" |
+| General section | "Barr, John, wine and spirit merchant, 85, 87 Jamaica street, and 102, 103 Great Clyde Street; house, ..." |
+| Street section, Great Clyde Street | "102, 103 Barr, John, spirit mer." |
+| Street section, Oswald Street, west (odd) side, Broomielaw end | "65 Grieve, Henry, clothier / 65 1/2 Hay, Wm. wine importer / 67 Shields, Jn. fancy box maker ... Robertson, John, clothier / Arnot, W. & Sons / 69 A. M'Ewan, tea warehouse" |
+| Street section, Oswald Street, east (even) side, Broomielaw end | "84 Garven, J. & Co. com. mer. / ... / Moses, Son, & Davis, cloths. / ... / Ballantyne, John, clothier / 82 Bryce, John, & Son, plumbers" |
+| General section | "Hay, William, wine importer, 65 1/2 Oswald st." |
+| Street section, Howard Street, north side | "11, 15 Corson & Currie / 17 Henderson, John, fraiterer [sic, OCR] / 19 Anderson, Wm. & Co." (the lane is not marked in the Howard Street section); general section: "Henderson, John, fruit merchant, 17 West Howard ..." |
+

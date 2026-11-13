@@ -1,9 +1,9 @@
 """Census of oriented corner/opening configurations around Jamaica Street, Glasgow (OS 1:500, surveyed 1857).
 
 Reads  data/openings_OS1857_Jamaica.csv (62 openings, 12 facades)
-       data/trades_1877.csv (directory trades of the corners that survive the geometric filters)
+       data/trades_1877.csv (directory trades at every orientation of every corner, tested or not; src/chance.py uses the full table)
 Writes data/configurations_phase1.csv  (one row per oriented corner x opening on the facing facade)
-       paper/tables/numbers.tex, corners5.tex, sensitivity.tex (generated, never hand-edited)
+       paper/tables/numbers.tex, corners.tex, sensitivity.tex (generated, never hand-edited)
 
 Notation (paper, section 3): A = corner block, Y = the street the family looks across, X = the other street,
 C = facade facing A across Y, d = offset of the nearer wall of the opening along the axis of Y, measured from the
@@ -11,7 +11,9 @@ line through A perpendicular to Y (positive on the side of X), D = distance from
 The model treats Y and X as perpendicular; d_plan and ang_plan measure the same quantities against the recorded face X
 (signed distance from the plane of face X, and angle between the line of sight and that face), as a sensitivity.
 """
-import csv, math, pathlib, sys
+import csv, math, pathlib, re, sys
+import numpy as np
+from shapely.geometry import LineString
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from geo import enu, unit, load_openings, P, FACADES
 
@@ -28,15 +30,19 @@ FACADE_CODE = {('Jamaica', 'W'): 'JW', ('Jamaica', 'E'): 'JE', ('Howard', 'N'): 
 TYPE_CODE = {'covered pend': 'pend', 'open recess': 'recess', 'street': 'street', 'lane': 'street', 'square': 'square'}
 TYPE_EN = {'pend': 'covered pend', 'recess': 'open recess', 'street': 'street mouth', 'square': 'square'}
 
-# Thresholds recorded in the author's working notes before the final census. The width-ratio band was adopted by the
-# author from a single earlier exploratory ChatGPT reading; the replicated model readings gave 0.4-1.6 (see sensitivity). The distance threshold of 20.4 m
-# (12 adult heights) was fixed in the author's earlier working dossier (not deposited) as a rule: a drawn distance clearly
-# below it would leave no configuration in the window. The model readings' widest envelope is 17 m. Both are reported, neither applied.
-RATIO_MIN, RATIO_MAX, ANGLE_MIN = 1.5, 3.0, 15.0
-MODEL_RATIO = (0.4, 1.6)            # range of the five central readings
-MODEL_RATIO_ENVELOPE = (0.2, 4.0)   # envelope of their individual intervals
-C5_ENVELOPE_M, C5_WORKING_M = 17.0, 20.4
+# Principal setting: no width-ratio filter. The band 1.5-3 used up to version 1.4 came from a single earlier exploratory
+# ChatGPT reading; it is kept only as a sensitivity row. The distance threshold of 20.4 m (12 adult heights) was fixed
+# in the author's earlier working dossier (not deposited); it is reported, not applied.
+RATIO_MIN, RATIO_MAX, ANGLE_MIN = 0.0, math.inf, 15.0
+AUTHOR_RATIO = (1.5, 3.0)
+C5_WORKING_M = 20.4
 ADULT = 1.7   # metres per adult height, for the D column
+# H4-H5 in full: both streets are drawn as carriageways (a cart on Y, ch. 1 p. 7 panel 4; a cobbled roadway and a kerbed
+# footway between the bar table and the shop on X, ch. 0), so an orientation with a lane as Y or X is excluded; and the
+# stand is at the foot of the clothes shop on face X, so the clothier must have an address on X (select, front=True).
+# Neither was coded in the first census of version 1.5; both were added after it returned Argyle x Adam's Court Lane SE.
+# lanes=True / front=False give that first coding (and version 1.4).
+LANES = {'ACL'}
 
 # Street axes from reference corners (data/corners_reference_OS1857.csv)
 JAM = unit(enu(55.85717, -4.25709), enu(55.85826, -4.25669))   # south -> north
@@ -85,6 +91,58 @@ add('Dixon x Fox NE (Y = Dixon)', (55.85641, -4.25562), 'Dixon', 'Fox', DIX, DWe
 add('Dixon x Fox SE (Y = Dixon)', (55.85634, -4.25568), 'Dixon', 'Fox', DIX, DWest, DIX, 'DW')
 add('Dixon x Great Clyde NE', (55.85607, -4.25586), 'Dixon', 'GreatClyde', DIX, DWest, neg(DIX), 'DW')
 add('Dixon x Great Clyde NW', (55.85614, -4.25608), 'Dixon', 'GreatClyde', DIX, DEast, neg(DIX), 'DE')
+# Orientations added in version 1.5 so that every corner of the window is tested wherever its facing frontage is digitised.
+ARG = unit(enu(55.85853, -4.25988), enu(55.85817, -4.25587)); ARG_N = rot90(ARG)                    # west -> east along Argyle
+ACLu = unit(enu(55.85701, -4.25630), enu(55.85817, -4.25587)); ACL_W = rot90(ACLu); ACL_E = neg(ACL_W)  # south -> north along the lane
+STE = unit(enu(55.85693, -4.25585), enu(55.85812, -4.25545)); STE_W = rot90(STE); STE_E = neg(STE_W)     # south -> north along the square
+add('Jamaica x Argyle SE (Y = Argyle)', (55.85826, -4.25669), 'Argyle', 'Jamaica', ARG, ARG_N, neg(ARG), 'RN')
+add('Jamaica x Argyle SW (Y = Argyle)', (55.85827, -4.25705), 'Argyle', 'Jamaica', ARG, ARG_N, ARG, 'RN')
+add("Argyle x Adam's Court Lane SW", (55.85817, -4.25587), 'Argyle', 'ACL', ARG, ARG_N, ARG, 'RN')
+add("Argyle x Adam's Court Lane SE", (55.85817, -4.25580), 'Argyle', 'ACL', ARG, ARG_N, neg(ARG), 'RN')
+add("Argyle x St Enoch's Sq. SW", (55.85812, -4.25545), 'Argyle', 'StE', ARG, ARG_N, ARG, 'RN')
+add("Argyle x St Enoch's Sq. SE", (55.85795, -4.25500), 'Argyle', 'StE', ARG, ARG_N, neg(ARG), 'RN')
+add("Argyle x Adam's Court Lane SW (Y = ACL)", (55.85817, -4.25587), 'ACL', 'Argyle', ACLu, ACL_E, ACLu, 'LE')
+add("Argyle x Adam's Court Lane SE (Y = ACL)", (55.85817, -4.25580), 'ACL', 'Argyle', ACLu, ACL_W, ACLu, 'LW')
+add("Howard x Adam's Court Lane NW (Y = ACL)", (55.85701, -4.25630), 'ACL', 'Howard', ACLu, ACL_E, neg(ACLu), 'LE')
+add("Howard x Adam's Court Lane NE (Y = ACL)", (55.85700, -4.25624), 'ACL', 'Howard', ACLu, ACL_W, neg(ACLu), 'LW')
+add("Howard x St Enoch's Sq. NW (Y = StE)", (55.85693, -4.25585), 'StE', 'Howard', STE, STE_E, neg(STE), 'QE')
+add("Howard x St Enoch's Sq. NE (Y = StE)", (55.85676, -4.25502), 'StE', 'Howard', STE, STE_W, neg(STE), 'QW')
+add("Argyle x St Enoch's Sq. SW (Y = StE)", (55.85812, -4.25545), 'StE', 'Argyle', STE, STE_E, STE, 'QE')
+add("Argyle x St Enoch's Sq. SE (Y = StE)", (55.85795, -4.25500), 'StE', 'Argyle', STE, STE_W, STE, 'QW')
+# In the window but not testable. Across the quay street (the Broomielaw, Great Clyde St) lie the river quay and the approach
+# to Glasgow Bridge: no frontage, so no watching point in this census (H5's panel draws a building edge and a kerbed footway
+# on the watchers' side). Other facing frontages are not digitised. All these corners still enter the chance population
+# through data/trades_1877.csv, which has a row for every orientation.
+QUAY = 'river quay or bridge approach across Y: no frontage, no watching point'
+UNTESTED = {'Jamaica x Broomielaw NW (Y = Broomielaw)': QUAY, 'Jamaica x Great Clyde NE (Y = Great Clyde)': QUAY,
+            'Oswald x Broomielaw NE (Y = Broomielaw)': QUAY, 'Oswald x Broomielaw NW (Y = Broomielaw)': QUAY,
+            'Dixon x Great Clyde NE (Y = Great Clyde)': QUAY, 'Dixon x Great Clyde NW (Y = Great Clyde)': QUAY,
+            'Broomielaw x Wood Lane NE (Y = Broomielaw)': QUAY, 'Broomielaw x Wood Lane NW (Y = Broomielaw)': QUAY,
+            'Broomielaw x Wood Lane NE (Y = Wood Lane)': 'Y is a lane; its frontages not digitised',
+            'Broomielaw x Wood Lane NW (Y = Wood Lane)': 'Y is a lane; its frontages not digitised',
+            'Oswald x Argyle SE (Y = Argyle)': 'Argyle N west of Alston St not digitised', 'Oswald x Argyle SW (Y = Argyle)': 'Argyle N west of Alston St not digitised',
+            'Dixon x Fox NE (Y = Fox)': 'Fox St frontages not digitised', 'Dixon x Fox SE (Y = Fox)': 'Fox St frontages not digitised'}
+
+# Facing frontage of each facade code: every point of it is a possible watching point (principal census);
+# the openings recorded on the 1857 plan are a subset, kept as a sensitivity and for the distances quoted in the text.
+FRONT = {'JW': ['Jamaica W (south of Ann)', 'Jamaica W (north of Ann)'], 'JE': ['Jamaica E (north of Howard)', 'Jamaica E (south of Howard)'],
+         'HN': ['Howard N (west of ACL)', 'Howard N (east of ACL)'], 'HS': ['Howard S', 'Howard S (east of Dixon)'],
+         'AN': ['Ann N'], 'AS': ['Ann S'], 'DE': ['Dixon E (north of Fox)', 'Dixon E (south of Fox)'], 'DW': ['Dixon W'],
+         'OE': ['Oswald E (south of Ann)', 'Oswald E (north of Ann)'], 'OW': ['Oswald W'],
+         'BN': ['Broomielaw N (east of Wood)', 'Broomielaw N (west of Wood)'], 'GN': ['Great Clyde N'],
+         'RN': ['Argyle N', 'Argyle N (Union-Mitchell)'], 'LW': ['ACL W'], 'LE': ['ACL E'], 'QW': ['Square W'], 'QE': ['Square E']}
+STEP = 0.5   # metres between sampled watching points along a frontage
+
+def frontage_points():
+    """Points every STEP metres along each facing frontage (shapely), in the same form as the recorded openings."""
+    out = []
+    for code, names in FRONT.items():
+        for name in names:
+            line = LineString(FACADES[name])
+            for s in np.arange(0.0, line.length + 1e-9, STEP):
+                p = line.interpolate(s); xy = (p.x, p.y)
+                out.append(dict(id=f'{name} @ {s:.1f} m', fac=code, type='frontage', w=0.0, p1=xy, p2=xy, kind='frontage'))
+    return out
 
 # Face X of each oriented corner, as a frontage of geo.FACADES that starts or ends at A (plan-angle sensitivity).
 # None: that frontage was not recorded; the perpendicular approximation is kept for the corner.
@@ -102,7 +160,14 @@ FACE_X = {'Jamaica x Howard NE': 'Howard N (west of ACL)', 'Jamaica x Howard SE'
           'Oswald x Argyle SE': 'Argyle S (west of Jamaica)', 'Oswald x Argyle SW': None,
           'Howard x Dixon SW (Y = Dixon)': 'Howard S', 'Howard x Dixon SE (Y = Dixon)': 'Howard S (east of Dixon)',
           'Dixon x Fox NE (Y = Dixon)': None, 'Dixon x Fox SE (Y = Dixon)': None,
-          'Dixon x Great Clyde NE': None, 'Dixon x Great Clyde NW': 'Great Clyde N'}
+          'Dixon x Great Clyde NE': None, 'Dixon x Great Clyde NW': 'Great Clyde N',
+          'Jamaica x Argyle SE (Y = Argyle)': 'Jamaica E (north of Howard)', 'Jamaica x Argyle SW (Y = Argyle)': 'Jamaica W (north of Ann)',
+          "Argyle x Adam's Court Lane SW": 'ACL W', "Argyle x Adam's Court Lane SE": 'ACL E',
+          "Argyle x St Enoch's Sq. SW": 'Square W', "Argyle x St Enoch's Sq. SE": 'Square E',
+          "Argyle x Adam's Court Lane SW (Y = ACL)": 'Argyle S (east of Jamaica)', "Argyle x Adam's Court Lane SE (Y = ACL)": None,
+          "Howard x Adam's Court Lane NW (Y = ACL)": 'Howard N (west of ACL)', "Howard x Adam's Court Lane NE (Y = ACL)": 'Howard N (east of ACL)',
+          "Howard x St Enoch's Sq. NW (Y = StE)": 'Howard N (east of ACL)', "Howard x St Enoch's Sq. NE (Y = StE)": None,
+          "Argyle x St Enoch's Sq. SW (Y = StE)": None, "Argyle x St Enoch's Sq. SE (Y = StE)": None}
 
 def face_x(c):
     """Unit vector along face X from A, or None when the frontage was not recorded."""
@@ -117,7 +182,8 @@ OPS = []
 def run():
     ops = OPS; ops.clear()
     for o in load_openings(DATA / 'openings_OS1857_Jamaica.csv'):
-        ops.append(dict(id=o['id'], fac=FACADE_CODE[(o['street'], o['side'])], type=TYPE_CODE[o['type']], w=o['w'], p1=o['p1'], p2=o['p2']))
+        ops.append(dict(id=o['id'], fac=FACADE_CODE[(o['street'], o['side'])], type=TYPE_CODE[o['type']], w=o['w'], p1=o['p1'], p2=o['p2'], kind='opening'))
+    ops += frontage_points()
     rows = []
     for c in CORNERS:
         perp = rot90(c['uY'])
@@ -150,12 +216,19 @@ def run():
                 d_plan = (near[0]-c['A'][0])*n[0] + (near[1]-c['A'][1])*n[1]
                 ang_plan = math.degrees(math.asin(d_plan / D)) if d_plan > 0 else 0.0
             rows.append(dict(corner=c['name'], Y=c['Y'], X=c['X'], chir=chir, ratio=w/s, open=o['id'], otype=o['type'], ow=o['w'], d=d, D=D, ang=ang,
-                             d_plan=d_plan, ang_plan=ang_plan))
+                             d_plan=d_plan, ang_plan=ang_plan, kind=o['kind']))
     return rows
 
-def filters(rows, rmin=RATIO_MIN, rmax=RATIO_MAX, amin=ANGLE_MIN, chir=True, wshift=0.0, dmax=None, plan=False):
-    """Cumulative filters. wshift widens Y and narrows X by that amount (width uncertainty).
-    plan=True measures visibility and viewing angle against the recorded face X instead of the perpendicular model."""
+def physical(name): return name.split(' (Y =')[0]
+
+def filters(rows, rmin=RATIO_MIN, rmax=RATIO_MAX, amin=ANGLE_MIN, chir=True, wshift=0.0, dmax=None, plan=False, points='frontage', lanes=False):
+    """Cumulative filters. points='frontage': every point of the facing frontage and every recorded opening may be the
+    watching point (principal); points='openings': only the openings recorded on the 1857 plan (version 1.4 census).
+    wshift widens Y and narrows X by that amount (width uncertainty).
+    plan=True measures visibility and viewing angle against the recorded face X instead of the perpendicular model.
+    lanes=False drops the orientations whose Y or X is a lane (principal); lanes=True keeps them (first coding)."""
+    if points == 'openings': rows = [r for r in rows if r['kind'] == 'opening']
+    if not lanes: rows = [r for r in rows if r['Y'] not in LANES and r['X'] not in LANES]
     def ratio(r): return (WIDTH[r['Y']] + wshift) / (WIDTH[r['X']] - wshift)
     def ang(r):
         if plan: return r['ang_plan']
@@ -171,106 +244,119 @@ def load_trades():
     with open(DATA / 'trades_1877.csv', encoding='utf-8') as f:
         return {r['corner']: r for r in csv.DictReader(f, delimiter=';')}
 
-def select(survivors, trades):
-    """Documentary step: among the corners that survive the geometry, keep those with a clothier at the corner
-    and licensed premises facing the stand (data/trades_1877.csv). Returns (corner names in order of D, winners)."""
+def select(survivors, trades, front=True):
+    """Documentary step: among the orientations that survive the geometry, those with a clothier at the corner and
+    licensed premises facing the stand (data/trades_1877.csv); front=True also requires the clothier to have an address
+    on X. Returns (orientation names in order of D, winners)."""
     corners = []
     for r in sorted(survivors, key=lambda r: r['D']):
         if r['corner'] not in corners: corners.append(r['corner'])
     missing = [c for c in corners if c not in trades]
-    assert not missing, f'no directory line for {missing} in data/trades_1877.csv'
-    allowed = {'yes', 'no', 'partial', 'unknown'}
+    if missing: raise ValueError(f'no directory line for {missing} in data/trades_1877.csv')
+    allowed = {'yes', 'no', 'partial', 'unknown', 'n/a'}
     for c in corners:
-        assert trades[c]['corner_clothier'] in allowed, (c, trades[c]['corner_clothier'])
-        assert trades[c]['facing_licensed'] in allowed, (c, trades[c]['facing_licensed'])
-    winners = [c for c in corners if trades[c]['corner_clothier'] == 'yes' and trades[c]['facing_licensed'] == 'yes']
+        if not {trades[c]['corner_clothier'], trades[c]['clothier_on_x'], trades[c]['facing_licensed']} <= allowed: raise ValueError(f'bad code for {c}')
+    winners = [c for c in corners if trades[c]['corner_clothier'] == 'yes' and trades[c]['facing_licensed'] == 'yes'
+               and (not front or trades[c]['clothier_on_x'] == 'yes')]
     return corners, winners
 
-def tex(s): return s.replace('&', '\\&')
-def write_tables(rows, c1, c12, c123, c123a):
+def tex(s): return ''.join({'&': r'\&', '%': r'\%', '#': r'\#', '_': r'\_', '$': r'\$'}.get(ch, ch) for ch in s)
+def occupant(text):
+    """Short occupant name for the table: the firm or 'Surname, Initials', or the first clause of a note."""
+    if 'not identified' in text[:40] or 'no clothier' in text[:20]: return 'not identified'
+    text = text.split(':')[0] if text.startswith(('not ', 'no ')) else text.split(' (')[0]
+    parts = [x.strip() for x in text.split(',')]
+    return parts[0] if '&' in parts[0] or len(parts) == 1 else f'{parts[0]}, {parts[1]}'
+def short(name): return re.sub(r' \(Y = \w+\)', '', name).replace(' x ', ' $\\times$ ').replace("Adam's Court Lane", 'ACL').replace("St Enoch's Sq.", 'St Enoch Sq.')
+
+CAND = 'Jamaica x Howard NE'
+def write_tables(rows):
     TABLES.mkdir(parents=True, exist_ok=True)
     trades = load_trades()
-    corners, winners = select(c123a, trades)
-    assert len(winners) == 1, winners
-    win = winners[0]
-    best = min((r for r in c123a if r['corner'] == win), key=lambda r: r['D'])   # nearest admissible opening (a choice, stated in the paper)
-    # Table: the corners that pass the geometry, with their directory trades
-    L = ['\\begin{tabular}{>{\\raggedright\\arraybackslash}p{2.7cm}>{\\raggedright\\arraybackslash}p{1.8cm}rr>{\\raggedright\\arraybackslash}p{3.9cm}>{\\raggedright\\arraybackslash}p{3.8cm}}', '\\toprule',
-         'Corner A (Y / X) & Nearest opening & $D$ (m) & Angle & At the corner, 1877--78 & Facing the stand across X, 1877--78 \\\\', '\\midrule']
-    for name in corners:
-        t = trades[name]; b = min((r for r in c123a if r['corner'] == name), key=lambda r: r['D'])
-        n_op = len([r for r in c123a if r['corner'] == name])
-        short = name.replace(' (Y = Howard)', '').replace(' (Y = Dixon)', '').replace(' (Y = Oswald)', '').replace(' (Y = Ann)', '').replace(' x ', ' $\\times$ ')
-        bold = (lambda s: f'\\textbf{{{s}}}') if name == win else (lambda s: s)
-        L.append(f"{bold(short)} ({b['Y']} / {b['X']}) & {b['open']}, {TYPE_EN[b['otype']]} ({n_op} admissible) & {b['D']:.1f} & {b['ang']:.0f}$^\\circ$ & "
-                 f"{tex(t['corner_trade'])}: clothier {t['corner_clothier']} & {tex(t['facing_trade'])}: licensed {t['facing_licensed']} \\\\")
+    hand = filters(rows)[3]; nohand = filters(rows, chir=False)[3]
+    _, win_hand = select(hand, trades); _, win_nohand = select(nohand, trades)
+    hand1 = filters(rows, lanes=True)[3]; nohand1 = filters(rows, chir=False, lanes=True)[3]     # first coding
+    _, win_hand1 = select(hand1, trades, front=False); order, win_nohand1 = select(nohand1, trades, front=False)
+    surv_hand = {r['corner'] for r in hand1}
+    lane = lambda name: next(c['Y'] in LANES or c['X'] in LANES for c in CORNERS if c['name'] == name)
+    # Table: every orientation that passes the geometry with or without the handedness convention (lanes included), with its trades
+    L = ['\\begin{tabular}{>{\\raggedright\\arraybackslash}p{3.0cm}crr>{\\raggedright\\arraybackslash}p{3.6cm}>{\\raggedright\\arraybackslash}p{3.6cm}}', '\\toprule',
+         'Corner A (Y / X) & Hand. & $D$ (m) & 1857 &  At the corner, 1877--78 & Facing the stand across X, 1877--78 \\\\', '\\midrule']
+    for name in order:
+        t = trades[name]; b = min((r for r in nohand1 if r['corner'] == name), key=lambda r: r['D'])
+        ops = [r for r in nohand1 if r['corner'] == name and r['kind'] == 'opening']
+        op = min(ops, key=lambda r: r['D'])['open'] if ops else '--'
+        bold = (lambda s: f'\\textbf{{{s}}}') if name in win_nohand else (lambda s: s)
+        onx = f", on X: {t['clothier_on_x']}" if t['corner_clothier'] == 'yes' and t['clothier_on_x'] != 'yes' else ''
+        L.append(f"{bold(short(name))}{'$^\\dagger$' if lane(name) else ''} ({b['Y']} / {b['X']}) & {'yes' if name in surv_hand else 'no'} & {b['D']:.0f} & {op} & "
+                 f"{tex(occupant(t['corner_trade']))}: {t['corner_clothier']}{onx} & {tex(occupant(t['facing_trade']))}: {t['facing_licensed']} \\\\")
     L += ['\\bottomrule', '\\end{tabular}']
-    (TABLES / 'corners5.tex').write_text('\n'.join(L) + '\n')
-    # Table: sensitivity of the geometric step to the parameters the paper controls, and to the two readings it does not
-    variants = [('as published: ratio 1.5--3, angle $\\ge 15^\\circ$', dict()),
-                ('ratio 1.2--4.0', dict(rmin=1.2, rmax=4.0)), ('ratio 1.8--2.5', dict(rmin=1.8, rmax=2.5)),
+    (TABLES / 'corners.tex').write_text('\n'.join(L) + '\n')
+    # Table: sensitivity of the geometric step
+    variants = [('every frontage point, handedness kept', dict()), ('every frontage point, no handedness', dict(chir=False)),
+                ('first coding: lanes kept, clothier anywhere at the corner', dict(lanes=True, front=False)),
+                ('first coding, no handedness', dict(chir=False, lanes=True, front=False)),
+                ('1857 openings only, first coding (version 1.4 without its width-ratio filter)', dict(points='openings', lanes=True, front=False)),
+                ('1857 openings only, width ratio 1.5--3, first coding (version 1.4 as published)',
+                 dict(points='openings', lanes=True, front=False, rmin=AUTHOR_RATIO[0], rmax=AUTHOR_RATIO[1])),
+                ('1857 openings only, no handedness', dict(points='openings', chir=False)),
+                ('width ratio 1.5--3 (used up to version 1.4)', dict(rmin=AUTHOR_RATIO[0], rmax=AUTHOR_RATIO[1])),
                 ('angle $\\ge 10^\\circ$', dict(amin=10.0)), ('angle $\\ge 25^\\circ$', dict(amin=25.0)),
                 ('widths: $Y$ $+0.7$~m, $X$ $-0.7$~m', dict(wshift=0.7)), ('widths: $Y$ $-0.7$~m, $X$ $+0.7$~m', dict(wshift=-0.7)),
-                ('no handedness constraint', dict(chir=False)),
-                ('no width-ratio constraint', dict(rmin=0.0, rmax=math.inf)),
-                ('ratio 0.4--1.6 (aggregate model reading)', dict(rmin=MODEL_RATIO[0], rmax=MODEL_RATIO[1])),
-                ('ratio 0.2--4.0 (envelope of the model readings)', dict(rmin=MODEL_RATIO_ENVELOPE[0], rmax=MODEL_RATIO_ENVELOPE[1])),
                 ('visibility and angle measured on the plan', dict(plan=True)),
-                (f"distance $D \\le {C5_WORKING_M:g}$~m (author's earlier dossier threshold)", dict(dmax=C5_WORKING_M)),
-                (f"distance $D \\le {C5_ENVELOPE_M:g}$~m (model-reading envelope)", dict(dmax=C5_ENVELOPE_M))]
-    L = ['\\begin{tabular}{lrrl}', '\\toprule', 'Geometric filters & Configurations & Corners & Jamaica $\\times$ Howard NE kept \\\\', '\\midrule']
+                (f"distance $D \\le {C5_WORKING_M:g}$~m (author's earlier rule)", dict(dmax=C5_WORKING_M))]
+    L = ['\\begin{tabular}{>{\\raggedright\\arraybackslash}p{7cm}rrl}', '\\toprule', 'Geometric setting & Corners & With both trades & Jamaica $\\times$ Howard NE kept \\\\', '\\midrule']
     sens = {}
     for label, kw in variants:
-        s = filters(rows, **kw)[3]; cs = {r['corner'] for r in s}
-        keep = 'yes' if win in cs else 'no'
-        sens[label] = (len(s), len(cs), keep)
-        L.append(f'{label} & {len(s)} & {len(cs)} & {keep} \\\\')
+        kw = dict(kw); front = kw.pop('front', True)
+        s = filters(rows, **kw)[3]; _, w = select(s, trades, front)
+        cs = {physical(r['corner']) for r in s}; ws = {physical(n) for n in w}
+        sens[label] = (len(cs), len(ws), CAND in cs)
+        L.append(f"{label} & {len(cs)} & {len(ws)} & {'yes' if CAND in cs else 'no'} \\\\")
     L += ['\\bottomrule', '\\end{tabular}']
     (TABLES / 'sensitivity.tex').write_text('\n'.join(L) + '\n')
     # Numbers quoted in the text
-    nC5 = len(filters(rows, dmax=C5_ENVELOPE_M)[3]); nC5p = len(filters(rows, dmax=C5_WORKING_M)[3])
-    model_rows = filters(rows, rmin=MODEL_RATIO[0], rmax=MODEL_RATIO[1])[3]
-    no_ratio = filters(rows, rmin=0.0, rmax=math.inf)[3]
-    env_rows = filters(rows, rmin=MODEL_RATIO_ENVELOPE[0], rmax=MODEL_RATIO_ENVELOPE[1])[3]
-    no_hand = filters(rows, chir=False)[3]
-    nModel = len(model_rows)
-    physical_corners = {tuple(round(x, 3) for x in c['A']) for c in CORNERS}
-    macros = {'nOpenings': len(OPS), 'nCornersOriented': len(CORNERS), 'nPhysicalCorners': len(physical_corners), 'nUniverse': len(rows), 'nCone': len(c1), 'nCtwo': len(c12),
-              'nCthree': len(c123), 'nAngle': len(c123a), 'nCorners': len(corners), 'nCfive': nC5, 'nCfiveWorking': nC5p, 'nModelRatio': nModel,
-              'SfourD': f"{best['D']:.1f}", 'SfourH': f"{best['D']/ADULT:.0f}", 'Sfourd': f"{best['d']:.1f}", 'SfourAngle': f"{best['ang']:.0f}",
-              'SfourOpen': best['open'], 'DminAll': f"{min(r['D'] for r in c123a):.1f}", 'CfiveEnvelope': f'{C5_ENVELOPE_M:g}', 'CfiveWorking': f'{C5_WORKING_M:g}'}
-    macros.update({'nNoRatio': len(no_ratio), 'nNoRatioCorners': len({r['corner'] for r in no_ratio}),
-                   'nNoHand': len(no_hand), 'nNoHandCorners': len({r['corner'] for r in no_hand}),
-                   'nModelCorners': len({r['corner'] for r in model_rows}),
-                   'nModelEnvelope': len(env_rows), 'nModelEnvelopeCorners': len({r['corner'] for r in env_rows})})
-    ann = min((r for r in c123a if r['corner'] == 'Jamaica x Ann SW'), key=lambda r: r['D'])
-    macros.update({'AnnSWD': f"{ann['D']:.1f}", 'AnnSWAngle': f"{ann['ang']:.0f}",
-                   'nSfourAdmissible': len([r for r in c123a if r['corner'] == win]),
-                   'nBroomielawNW': len([r for r in rows if r['corner'] == 'Jamaica x Broomielaw NW']),
-                   'WidthJamaica': f"{WIDTH['Jamaica']:.1f}", 'WidthHoward': f"{WIDTH['Howard']:.1f}",
-                   'RatioJH': f"{WIDTH['Jamaica'] / WIDTH['Howard']:.1f}", 'RatioMirror': f"{WIDTH['Howard'] / WIDTH['Jamaica']:.2f}",
-                   'DPaisleyA': f"{math.dist(P['PAISLEY'], CORNERS[0]['A']):.0f}"})   # later Paisley's corner (1885) to Jamaica x Howard NE
-    plan_rows = filters(rows, plan=True)[3]
-    plan_c1 = filters(rows, plan=True)[0]
-    ann_plan = next(r for r in plan_rows if r['corner'] == 'Jamaica x Ann SW' and r['open'] == ann['open'])
+    o1, o12, o123, o123a = filters(rows, points='openings', lanes=True)
+    best = min((r for r in o123a if r['corner'] == CAND), key=lambda r: r['D'])      # JW6, the recorded opening nearest the candidate
+    near = min((r for r in hand if r['corner'] == CAND), key=lambda r: r['D'])        # nearest admissible frontage point
+    c1, c12, _, _ = filters(rows)
+    plan = filters(rows, plan=True)[3]
     ja, jh = FACADES['Jamaica E (north of Howard)'], FACADES['Howard N (west of ACL)']
     ea, eh = unit(ja[0], ja[1]), unit(jh[0], jh[1])
-    macros.update({'nPlanCone': len(plan_c1), 'nPlanAngle': len(plan_rows), 'nPlanCorners': len({r['corner'] for r in plan_rows}),
-                   'SfourAnglePlan': f"{best['ang_plan']:.0f}", 'AnnSWAnglePlan': f"{ann_plan['ang_plan']:.0f}",
-                   'nCfiveWorkingPlan': len(filters(rows, plan=True, dmax=C5_WORKING_M)[3]),
-                   'nCfivePlan': len(filters(rows, plan=True, dmax=C5_ENVELOPE_M)[3]),
-                   'DminPlan': f"{min(r['D'] for r in plan_rows):.1f}",
-                   'CornerAngleJH': f"{math.degrees(math.acos(ea[0]*eh[0] + ea[1]*eh[1])):.0f}",
-                   'nRivals': len(corners) - 1})
-    (TABLES / 'numbers.tex').write_text(''.join(f'\\newcommand{{\\{k}}}{{{v}}}\n' for k, v in macros.items()))
-    return corners, win, best, sens
+    phys_all = {physical(n) for n in trades}
+    m = {'nOpenings': len([o for o in OPS if o['kind'] == 'opening']), 'nUniverse': len([r for r in rows if r['kind'] == 'opening']),
+         'nCone': len(o1), 'nCtwo': len(o12), 'nAngle': len(o123a), 'nCorners': len({physical(r['corner']) for r in o123a}),
+         'nOrient': len(CORNERS), 'nUntested': len(UNTESTED), 'nUntestedQuay': sum(v == QUAY for v in UNTESTED.values()), 'nPhysicalWindow': len(phys_all),
+         'nOrientCone': len({r['corner'] for r in c1}), 'nOrientTwo': len({r['corner'] for r in c12}), 'nOrientAngle': len({r['corner'] for r in hand}),
+         'nSurv': len({physical(r['corner']) for r in hand}), 'nSurvNoHand': len({physical(r['corner']) for r in nohand}),
+         'nWin': len({physical(n) for n in win_hand}), 'nWinNoHand': len({physical(n) for n in win_nohand}),
+         'nSurvFirst': len({physical(r['corner']) for r in hand1}), 'nSurvNoHandFirst': len({physical(r['corner']) for r in nohand1}),
+         'nWinFirst': len({physical(n) for n in win_hand1}), 'nWinNoHandFirst': len({physical(n) for n in win_nohand1}),
+         'nLaneOrient': len([c for c in CORNERS if c['Y'] in LANES or c['X'] in LANES]),
+         'nPlanSurv': len({physical(r['corner']) for r in plan}),
+         'nCfiveWorking': sens[f"distance $D \\le {C5_WORKING_M:g}$~m (author's earlier rule)"][0], 'CfiveWorking': f'{C5_WORKING_M:g}',
+         'SfourD': f"{best['D']:.1f}", 'SfourH': f"{best['D']/ADULT:.0f}", 'Sfourd': f"{best['d']:.1f}", 'SfourAngle': f"{best['ang']:.0f}",
+         'SfourAnglePlan': f"{best['ang_plan']:.0f}", 'SfourOpen': best['open'], 'nSfourAdmissible': len([r for r in o123a if r['corner'] == CAND]),
+         'DnearJH': f"{near['D']:.0f}", 'DnearJHH': f"{near['D']/ADULT:.0f}", 'SfourWidth': f"{best['ow']:.1f}",
+         'DPHSE': f"{math.dist(P['PH1893'], CORNERS[1]['A']):.0f}",   # the 1892-94 "P.H." from the SE corner of Jamaica x Howard
+         'nCornersRatio': sens['1857 openings only, width ratio 1.5--3, first coding (version 1.4 as published)'][0],
+         'nBroomielawNW': len([r for r in rows if r['corner'] == 'Jamaica x Broomielaw NW' and r['kind'] == 'opening']),
+         'WidthJamaica': f"{WIDTH['Jamaica']:.1f}", 'WidthHoward': f"{WIDTH['Howard']:.1f}", 'WidthACL': f"{WIDTH['ACL']:.1f}",
+         'RatioJH': f"{WIDTH['Jamaica'] / WIDTH['Howard']:.1f}", 'RatioMirror': f"{WIDTH['Howard'] / WIDTH['Jamaica']:.2f}",
+         'DPaisleyA': f"{math.dist(P['PAISLEY'], CORNERS[0]['A']):.0f}",
+         'CornerAngleJH': f"{math.degrees(math.acos(ea[0]*eh[0] + ea[1]*eh[1])):.0f}"}
+    (TABLES / 'numbers.tex').write_text(''.join(f'\\newcommand{{\\{k}}}{{{v}}}\n' for k, v in m.items()))
+    return dict(win_hand=win_hand, win_nohand=win_nohand, win_hand1=win_hand1, win_nohand1=win_nohand1, surv_hand=surv_hand, order=order, best=best, sens=sens)
+
+def write_configurations(rows):
+    with open(DATA / 'configurations_phase1.csv', 'w', newline='') as f:   # the recorded-opening configurations only
+        ops = [{k: v for k, v in r.items() if k != 'kind'} for r in rows if r['kind'] == 'opening']
+        wr = csv.DictWriter(f, fieldnames=list(ops[0].keys()), delimiter=';', lineterminator='\n'); wr.writeheader(); wr.writerows(ops)
 
 if __name__ == '__main__':
     rows = run()
-    with open(DATA / 'configurations_phase1.csv', 'w', newline='') as f:
-        wr = csv.DictWriter(f, fieldnames=list(rows[0].keys()), delimiter=';', lineterminator='\n'); wr.writeheader(); wr.writerows(rows)
-    c1, c12, c123, c123a = filters(rows)
-    corners, win, best, sens = write_tables(rows, c1, c12, c123, c123a)
-    print(f'universe {len(rows)}  C1 {len(c1)}  C1+C2 {len(c12)}  +C3 {len(c123)}  +angle {len(c123a)}  on {len(corners)} corners')
-    print(f"documentary step: {win}; nearest admissible opening {best['open']} D={best['D']:.1f} m = {best['D']/ADULT:.1f} adult heights, angle {best['ang']:.0f} deg")
-    for k, v in sens.items(): print(f'  {k:60s} {v[0]:3d} configs {v[1]:2d} corners  {v[2]}')
+    write_configurations(rows)
+    out = write_tables(rows)
+    print('both trades, handedness kept:', out['win_hand'], '| without handedness:', out['win_nohand'])
+    print('first coding:', out['win_hand1'], '|', out['win_nohand1'])
+    for k, v in out['sens'].items(): print(f'  {k:60s} corners {v[0]:2d}  both trades {v[1]}  candidate kept {v[2]}')

@@ -1,3 +1,5 @@
+> Kept for the record. Since version 1.5 these model readings are no longer used as evidence, and the counts below refer to the census of version 1.4.
+
 # Aggregate model-reading sensitivity
 
 Date: 10 November 2026. Five Claude model instances read either 10 or 14 supplied comic-page images. All received the same narrative context and imposed definitions of the corner and streets X and Y; the 14-image set added three inked-page captures and the SOU'S/PEACHY'S page. No map, directory, candidate location or web search was available. These are exploratory model readings, not independent human observations or archival evidence.

@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{39}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -19,12 +19,24 @@ M.~L. Benedikt.
   (1):\penalty0 47--65, 1979.
 \newblock \doi{10.1068/b060047}.
 
+\bibitem[Broadbent(1980)]{broadbent1980ley}
+Simon Broadbent.
+\newblock Simulating the ley hunter.
+\newblock \emph{Journal of the Royal Statistical Society, Series A},
+  143\penalty0 (2):\penalty0 109--140, 1980.
+
 \bibitem[{Canmore (Historic Environment Scotland)}(n.d.)]{canmorePaisley}
 {Canmore (Historic Environment Scotland)}.
-\newblock {Glasgow}, 72 {Jamaica Street}, {Paisley's Outfitters}.
-\newblock Canmore catalogue, \url{https://canmore.org.uk}, record found by
-  searching ``Paisley's, Jamaica Street'', n.d.
+\newblock {Glasgow}, 72 {Jamaica Street}, {Paisley's Warehouse}.
+\newblock Canmore ID 161875 (NS56SE 438),
+  \url{https://canmore.org.uk/site/161875}, n.d.
 \newblock Accessed 12 November 2026.
+
+\bibitem[Caquard(2013)]{caquard2013narrative}
+S{\'e}bastien Caquard.
+\newblock Cartography {I}: Mapping narrative cartography.
+\newblock \emph{Progress in Human Geography}, 37\penalty0 (1):\penalty0
+  135--144, 2013.
 
 \bibitem[Cura et~al.(2018)Cura, Dumenieu, Abadie, Costes, Perret, and
   Gribaudi]{cura2018geocoding}
@@ -51,6 +63,11 @@ Jind{\v{r}}ich Frajer and Petr {\v{S}}im{\'a}{\v{c}}ek.
 \newblock \emph{Journal of Maps}, 15\penalty0 (3):\penalty0 66--74, 2019.
 \newblock \doi{10.1080/17445647.2018.1563570}.
 
+\bibitem[Gelman and Loken(2014)]{gelman2014crisis}
+Andrew Gelman and Eric Loken.
+\newblock The statistical crisis in science.
+\newblock \emph{American Scientist}, 102\penalty0 (6):\penalty0 460--465, 2014.
+
 \bibitem[{Grace's Guide}(n.d.)]{gracesPaisley}
 {Grace's Guide}.
 \newblock Paisleys.
@@ -64,17 +81,35 @@ Ian~N. Gregory and Paul~S. Ell.
 \newblock Cambridge University Press, Cambridge, 2007.
 \newblock \doi{10.1017/CBO9780511493645}.
 
-\bibitem[{Historic Environment Scotland}(n.d.)]{hesGardner}
-{Historic Environment Scotland}.
-\newblock 36 {Jamaica Street} and 10 {Midland Street}, {Gardner's} ({LB33065}).
-\newblock Listed Building record,
-  \url{https://portal.historicenvironment.scot/designation/LB33065}, n.d.
-\newblock Category A; warehouse built 1855--56. Accessed 12 November 2026.
+\bibitem[Grijzenhout(2015)]{grijzenhout2015little}
+Frans Grijzenhout.
+\newblock \emph{Vermeer's Little Street: A View of the Penspoort in Delft}.
+\newblock Rijksmuseum, Amsterdam, 2015.
+\newblock Translated by Lynne Richards.
+
+\bibitem[Hones(2014)]{hones2014literary}
+Sheila Hones.
+\newblock \emph{Literary Geographies: Narrative Space in \emph{Let The Great
+  World Spin}}.
+\newblock Palgrave Macmillan, New York, 2014.
 
 \bibitem[{Inducks}(n.d.)]{inducks}
 {Inducks}.
 \newblock Story codes {D~91249} and {D~91308}.
 \newblock \url{https://inducks.org}, n.d.
+
+\bibitem[Kass and Raftery(1995)]{kass1995bayes}
+Robert~E. Kass and Adrian~E. Raftery.
+\newblock Bayes factors.
+\newblock \emph{Journal of the American Statistical Association}, 90\penalty0
+  (430):\penalty0 773--795, 1995.
+\newblock \doi{10.1080/01621459.1995.10476572}.
+
+\bibitem[Laurier(2014)]{laurier2014graphic}
+Eric Laurier.
+\newblock The graphic transcript: Poaching comic book grammar for inscribing
+  the visual, spatial and temporal aspects of action.
+\newblock \emph{Geography Compass}, 8\penalty0 (4):\penalty0 235--248, 2014.
 
 \bibitem[Lef{\`e}vre(2008)]{lefevre2008space}
 Pascal Lef{\`e}vre.
@@ -82,6 +117,7 @@ Pascal Lef{\`e}vre.
 \newblock In Jeet Heer and Kent Worcester, editors, \emph{A Comics Studies
   Reader}, pages 157--162. University Press of Mississippi, 2008.
 \newblock \doi{10.2307/j.ctt2tvd9s.21}.
+\newblock Reprinted from \emph{Image \& Narrative} 16 (2006).
 
 \bibitem[{National Records of Scotland}(n.d.)]{nrsVR102}
 {National Records of Scotland}.
@@ -127,10 +163,26 @@ Nick Ottens.
   \url{https://neverwasmag.com/2020/04/the-times-of-scrooge-mcduck-of-ducks-and-dimes-and-destinies/},
   2020{\natexlab{b}}.
 \newblock Review; places the story in and around Jamaica Street from the
-  printed plate, notes that Paisley's was a real outfitter, doubts that the
-  visitor's arrival street is Jamaica Street because of the 1872 tramline and
-  asks readers to name that street; the title is printed there as \emph{Of
-  Ducks and Dimes and Destinies}. Accessed 13 November 2026.
+  printed plate, notes that Paisley's was a real outfitter, argues that the
+  visitor's arrival street cannot be Jamaica Street because of the 1872
+  tramline and asks readers to name that street; the title is printed there as
+  \emph{Of Ducks and Dimes and Destinies}. Accessed 13 November 2026.
+
+\bibitem[Peterle(2017)]{peterle2017comic}
+Giada Peterle.
+\newblock Comic book cartographies: A cartocentred reading of \emph{City of
+  Glass}, the graphic novel.
+\newblock \emph{cultural geographies}, 24\penalty0 (1):\penalty0 43--68, 2017.
+\newblock \doi{10.1177/1474474016643972}.
+
+\bibitem[Piatti et~al.(2009)Piatti, B{\"a}r, Reuschel, Hurni, and
+  Cartwright]{piatti2009mapping}
+Barbara Piatti, Hans~Rudolf B{\"a}r, Anne-Kathrin Reuschel, Lorenz Hurni, and
+  William Cartwright.
+\newblock Mapping literature: Towards a geography of fiction.
+\newblock In William Cartwright, Georg Gartner, and Antje Lehn, editors,
+  \emph{Cartography and Art}, pages 177--192. Springer, Berlin, 2009.
+\newblock \doi{10.1007/978-3-540-68569-2_15}.
 
 \bibitem[Plewe(2002)]{plewe2002uncertainty}
 Brandon Plewe.
@@ -147,9 +199,21 @@ Brandon Plewe.
   1860--1906.
 \newblock Volumes 1860--61, 1865--66, 1870--71, 1876--77 to 1881--82, 1885--86,
   1890--91 to 1892--93, 1895--96, 1905--06 read in OCR; the 1877--78 lines
-  marked $\dagger$ in Appendix~A checked on the page images by the author.
-  Digitisation published under CC BY-NC-SA 2.5 Scotland. Accessed 12 and 13
-  November 2026.
+  marked $\dagger$ in \texttt{data/directory\_lines.md} checked on the page
+  images. Digitisation published under CC BY-NC-SA 2.5 Scotland. Accessed 12
+  and 13 November 2026.
+
+\bibitem[{RailScot}(n.d.)]{railscotStEnoch}
+{RailScot}.
+\newblock Glasgow {St Enoch}.
+\newblock \url{https://railscot.co.uk/locations/G/Glasgow_St_Enoch}, n.d.
+\newblock Opened 17 October 1876 on the City of Glasgow Union Railway. Accessed
+  13 November 2026.
+
+\bibitem[Reijnders(2011)]{reijnders2011places}
+Stijn Reijnders.
+\newblock \emph{Places of the Imagination: Media, Tourism, Culture}.
+\newblock Ashgate, Farnham, 2011.
 
 \bibitem[Rosa(1992)]{rosaPencils}
 Don Rosa.
@@ -181,6 +245,12 @@ Don Rosa.
   pp.~9--23) and \emph{The Last of the Clan McDuck} (D~91308, pp.~25--39), with
   the author's commentaries.
 
+\bibitem[Saunders(2010)]{saunders2010literary}
+Angharad Saunders.
+\newblock Literary geography: Reforging the connections.
+\newblock \emph{Progress in Human Geography}, 34\penalty0 (4):\penalty0
+  436--452, 2010.
+
 \bibitem[{ScotlandsPeople}(2026)]{spVR}
 {ScotlandsPeople}.
 \newblock Valuation rolls, 1855--1940 (decennial years).
@@ -196,11 +266,21 @@ Gareth Shaw.
 \newblock \emph{Urban History Yearbook}, 11:\penalty0 36--44, 1984.
 \newblock \doi{10.1017/S0963926800006908}.
 
-\bibitem[{Wikipedia contributors}(n.d.)]{wikiGlasgowTram}
-{Wikipedia contributors}.
-\newblock {Glasgow Tramway and Omnibus Company}.
-\newblock
-  \url{https://en.wikipedia.org/wiki/Glasgow_Tramway_and_Omnibus_Company}, n.d.
+\bibitem[Steegen et~al.(2016)Steegen, Tuerlinckx, Gelman, and
+  Vanpaemel]{steegen2016multiverse}
+Sara Steegen, Francis Tuerlinckx, Andrew Gelman, and Wolf Vanpaemel.
+\newblock Increasing transparency through a multiverse analysis.
+\newblock \emph{Perspectives on Psychological Science}, 11\penalty0
+  (5):\penalty0 702--712, 2016.
+\newblock \doi{10.1177/1745691616658637}.
+
+\bibitem[Tunnicliffe(2026)]{tunnicliffe2026central}
+Nerys Tunnicliffe.
+\newblock {Glasgow Central Station} -- times past.
+\newblock Glasgow Life, stories and blogs from the Mitchell Library, 26 June
+  2026,
+  \url{https://www.glasgowlife.org.uk/libraries/family-history/stories-and-blogs-from-the-mitchell/times-past-blogs/glasgow-central-station-times-past},
+  2026.
 \newblock Accessed 13 November 2026.
 
 \bibitem[Zohar and Shimshoni(2021)]{zohar2021engravings}

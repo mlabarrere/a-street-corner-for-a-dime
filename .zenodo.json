@@ -1,6 +1,6 @@
 {
-  "title": "A Street Corner for a Dime: Placing Don Rosa's 1877 Glasgow Shoeshine Scene",
-  "description": "Paper, data and reproducible code testing Don Rosa's 1877 Glasgow shoeshine scene against Ordnance Survey 1:500 plans and Post Office directories. The census contains 187 configurations on twelve selected facades. Under the author's contested width-ratio filter, 17 configurations on five corners pass the geometric model; Jamaica Street and Howard Street NE is the only one of those five with affirmative 1877-78 evidence for both required trades. Every reading of the drawn distance, the author's included, is shorter than any admissible opening; the range of the model-read width ratios removes the candidate, though their envelope keeps it; measuring the viewing angles on the plan instead of treating the streets as perpendicular keeps the same five corners. Jamaica and Howard NE is the strongest candidate and the probable topographic basis of the scene; literal single-source copying is not established.",
+  "title": "A Street Corner for a Dime: Don Rosa's Glasgow and the Chance of a Match",
+  "description": "Paper, data and reproducible code testing whether a street corner of the Glasgow of 1877 matches Don Rosa's shoeshine scene, and how often such a match would arise by chance. Every corner of a declared window on the 1857-58 Ordnance Survey 1:500 plan is censused. The drawn relations leave 8 corners with the handedness of the inked corner view (14 without); in the 1877-78 Post Office directory one of them, Jamaica Street x Howard Street NE, has a clothier fronting the side street and a spirit dealer across it. The pair occurs at 3 of the 30 corners of the window, one of them the later Paisley's corner, which fails the drawn geometry; at least one survivor would carry it 62% of the time by chance, and the evidence raises the odds that Rosa drew a real corner of this window by a factor of 1.2-1.5. Version 1.5 revises version 1.4, whose conclusion that Jamaica and Howard NE was the probable topographic basis of the scene is withdrawn.",
   "upload_type": "publication",
   "publication_type": "preprint",
   "creators": [
@@ -10,7 +10,6 @@
       "orcid": "0009-0006-0822-3649"
     }
   ],
-  "publication_date": "2026-11-13",
   "license": "cc-by-4.0",
   "keywords": [
     "Don Rosa",
@@ -23,6 +22,6 @@
   ],
   "language": "eng",
   "access_right": "open",
-  "version": "1.4",
-  "notes": "Concept DOI: 10.5281/zenodo.24170392 (all versions). Original text, data files, tables and diagrams: CC BY 4.0. Source code (src/, tests/, Makefile): MIT. Third-party maps keep their stated rights; no comic panel is reproduced. AI use is disclosed in the paper; the release contains aggregate sensitivity results, not raw prompts or conversations. Changes are listed in CHANGELOG.md."
+  "version": "1.5",
+  "notes": "Concept DOI: 10.5281/zenodo.24170392 (all versions). Original text, data files, tables and diagrams: CC BY 4.0, except the directory transcriptions (data/directory_lines.md and the quoted directory text in data/trades_1877.csv), which follow the National Library of Scotland digitisation's CC BY-NC-SA 2.5 Scotland terms. Source code (src/, tests/, Makefile): MIT. Third-party maps keep their stated rights; no comic panel is reproduced. AI use is disclosed in the paper; the release contains aggregate sensitivity results, not raw prompts or conversations. Changes are listed in CHANGELOG.md."
 }

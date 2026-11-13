@@ -25,3 +25,7 @@ Oswald × Argyle, SW corner;55.85853;-4.25988;end of building measured 2.5–4 m
 Oswald × Broomielaw, NE corner;55.85666;-4.25958;vertex (intersection of building lines)
 Oswald × Broomielaw, NW corner;55.85667;-4.25989;end of building measured 2.5–4 m from the building line
 Howard × St Enoch's Square, NE corner;55.85676;-4.25502;end of building, read in code (census.py) from the plan
+Argyle × Adam's Court Lane, SW corner;55.85817;-4.25587;approximate: read from the NLS 1857 layer for version 1.5, not yet re-digitised
+Argyle × Adam's Court Lane, SE corner;55.85817;-4.25580;approximate: read from the NLS 1857 layer for version 1.5, not yet re-digitised (lane width)
+Argyle × St Enoch Square, SW corner;55.85812;-4.25545;approximate: read from the NLS 1857 layer for version 1.5, not yet re-digitised
+Argyle × St Enoch Square, SE corner;55.85795;-4.25500;approximate: read from the NLS 1857 layer for version 1.5, not yet re-digitised

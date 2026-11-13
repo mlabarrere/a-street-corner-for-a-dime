@@ -1,6 +1,6 @@
 # A Street Corner for a Dime
 
-Where did Don Rosa's ten-year-old Scrooge McDuck earn his first coin? The paper (`paper/main.pdf`, preprint version 1.4, 13 November 2026; version DOI [10.5281/zenodo.24195132](https://doi.org/10.5281/zenodo.24195132)) tests the shoeshine scene of *The Last of the Clan McDuck* and *Of Ducks, Dimes and Destinies* against the Ordnance Survey 1:500 plans of Glasgow (1857–58, 1892–94) and sampled Post Office directories (1860–1906). On twelve selected facades, 187 corner-and-opening configurations are censused. Under the author's contested width-ratio filter, 17 configurations on five corners pass the geometric model; Jamaica Street and Howard Street NE is the only one of those five with affirmative 1877–78 evidence for both required trades. No principal survivor meets the model-read 17 m distance, one configuration (Howard Street and Adam's Court Lane NW, opening HS3) meets the 20.4 m threshold of the author's earlier working dossier, and the range of the model-read central width ratios leaves two configurations at one corner whose corner premises the 1877–78 directory gives to a non-clothier, although the envelope of those readings keeps the candidate. Measuring the viewing angles on the plan instead of treating the streets as perpendicular keeps the same five corners. Those non-metric proportions are weaker evidence than the conjunction of named street, geometry and trades: Jamaica and Howard NE is the strongest candidate and the probable topographic basis of the scene, although literal single-source copying is not established.
+Where did Don Rosa's ten-year-old Scrooge McDuck earn his first coin, and how often would a match that good turn up by chance? The paper (`paper/main.pdf`, version 1.5) tests the shoeshine scene of *The Last of the Clan McDuck* and *Of Ducks, Dimes and Destinies* against the Ordnance Survey 1:500 plans of Glasgow (1857–58, 1892–94) and sampled Post Office directories (1860–1906). Every corner of a declared window is censused (30 corners; 46 orientations tested, 14 untestable, every orientation read in the directory), every point of the facing frontage being a possible watching point. The drawn relations (no lane as either street; the clothier's shop fronting the side street) leave 8 corners with the handedness of the inked corner view and 14 without it. In the 1877–78 directory, 1 of them (2 without the handedness convention) has a clothier whose shop fronts the side street and licensed premises facing it across that street: Jamaica Street × Howard Street NE (and Jamaica Street × Argyle Street SW). The pair occurs at 3 of the 30 corners of the window, one of them the later Paisley's corner, which fails the drawn geometry; at least one survivor would show it 62% of the time by chance, and the evidence raises the odds that Rosa drew a real corner of this window by a factor of 1.2–1.5 (at most 1.7 in any variant). A first coding, which let a lane count as a street and the clothier front either street, also returned Argyle Street × Adam's Court Lane SE (82% by chance); the two requirements were added after it, and both codings are reported. Restricted to the openings recorded in 1857, the census returns version 1.4's corners and its single match.
 
 ## Reproduce
 
@@ -8,26 +8,31 @@ Where did Don Rosa's ten-year-old Scrooge McDuck earn his first coin? The paper 
 brew install tectonic          # macOS; on other systems install Tectonic from https://tectonic-typesetting.github.io/
 make setup                     # Python venv from pinned requirements
 make all                       # tables -> figures -> paper/main.pdf
-make test                      # asserts 187 -> 45 -> 23 -> 20 -> 17; five filtered corners; sensitivities and documentary result
+make test                      # checks the counts and chance figures, and that every generated file matches the code byte for byte
+make anon                      # anonymised PDF for double-anonymous review (paper/anon.pdf)
 ```
 
 Python 3 with `venv` is required (checked with Python 3.15.0 and Tectonic 0.17.0, which downloads its TeX bundle on first use). `requirements.txt` pins the direct dependencies; `requirements-lock.txt` records every package version used for the release build (`.venv/bin/pip install -r requirements-lock.txt`). Without Tectonic, build the paper with a TeX distribution after `make tables figures`: `cd paper && pdflatex main && bibtex main && pdflatex main && pdflatex main`.
 
-Hand-entered inputs: street widths (`WIDTH` in `src/census.py`, read with the NLS measuring tool, ±0.7 m), corner coordinates (hard-coded in `src/geo.py` and `src/census.py`, documented in `data/corners_reference_OS1857.csv`), 32 selected orientations of 24 physical corners, the 62 openings (`data/openings_OS1857_Jamaica.csv`) and the directory evidence for the five filtered corners and for the two corners that enter only under sensitivity settings (`data/trades_1877.csv`). The pipeline regenerates the census, filter counts, distances and angles from those inputs, Tables 2–3, Figures 1–3 and `paper/tables/*.tex`. Narrative distances not used by the model are identified as approximate in the paper.
+Hand-entered inputs: street widths (`WIDTH` in `src/census.py`, read with the NLS measuring tool, ±0.7 m), corner coordinates (hard-coded in `src/geo.py` and `src/census.py`, documented in `data/corners_reference_OS1857.csv`), the frontages (`FACADES` in `src/geo.py`), 46 orientations of 30 corners (`src/census.py`), the 62 openings (`data/openings_OS1857_Jamaica.csv`) and the directory evidence for every orientation (`data/trades_1877.csv`; column `checked` says whether a row was checked on the page image or read in the OCR only). Coordinates are projected with pyproj (local azimuthal equidistant projection on WGS84); frontage points are sampled with shapely. The pipeline regenerates the census, the chance analysis and its full grid of variants (`data/chance_multiverse.csv`), the tables, Figures 1–3 and `paper/tables/*.tex`.
+
+**Directory coding.** *Corner premises*: the entries tied to the corner building by an address on both streets, or by adjacency to an "X street intersects" or "here" marker or to the end of the street. *Clothier*: `yes` if a corner-premises trade contains clothier, clothes or outfitter; `no` if the corner premises are identified and given to another named trade; `unknown` otherwise (silence in the OCR is never evidence of absence). *Clothier on X* (`clothier_on_x`): `yes` if the clothier's own entry (general or street section) gives an address on X, where the shop must front (H4); `no` if its only address is on Y; `unknown` if not checked; `n/a` when the corner premises are not a clothier's. *Facing block*: the frontage across X that looks at the stand. *Licensed*: `yes` for a spirit dealer, spirit merchant, wine and spirit merchant, restaurateur or publican within a few premises of the corner of the facing block; `partial` for one further along the block, a grocer and wine merchant, a wholesaler or a hotel whose licence is not stated; `no` when the facing block is read and none is licensed, or when it is a river quay (`facing_quay`); temperance hotels are never licensed; `unknown` otherwise. *Other columns*: `corner_premises` and `facing_premises` (addresses), `corner_trade` and `facing_trade` (the directory text, abridged), `checked` (`image` or `ocr`), `in_v14` (`yes` if the orientation was in version 1.4; it defines the version-1.4 population), `source`.
+
+**Book-page concordance.** Story page n of chapter 0 is book page n+8 in *The Don Rosa Library* vol. 4 and in Glénat vol. 2 (pp. 9–23); story page n of chapter 1 is book page n+24 in *The Don Rosa Library* vol. 4 (pp. 25–39) and n+10 in Glénat vol. 1 (pp. 11–25).
 
 ## Layout
 
 | Path | Content |
 |---|---|
-| `paper/` | `main.tex` (version 1.4), `refs.bib`, `main.pdf`, generated `tables/` and `figures/` |
-| `data/` | `openings_OS1857_Jamaica.csv` (62 openings), `corners_reference_OS1857.csv` (26 corners: the 24 used and two Wood Lane corners), `trades_1877.csv` (directory trades of seven corners), `directory_lines.md` (all directory lines relied on, 1860–1906), `configurations_phase1.csv` (187 configurations, generated) |
-| `src/` | `geo.py` (local frame, facades, blocks), `census.py` (configurations, filters, documentary selection, sensitivity, LaTeX tables), `figures.py` (the three deterministic figures) |
-| `evidence/` | `model_reading_sensitivity.md` (aggregate protocol and numerical results, without prompts or conversations), NLS viewer screenshots (with the layer's "Re-use: CC-BY (NLS)" header), `map_openings_OS1857.png` (hand-annotated extract of the NLS layer keying the opening codes), `PROVENANCE.md` |
+| `paper/` | `main.tex` (version 1.5), `anon.tex` (anonymised build), `refs.bib`, `main.pdf`, generated `tables/` and `figures/` |
+| `data/` | `openings_OS1857_Jamaica.csv` (62 openings), `corners_reference_OS1857.csv` (the 30 corners; the four added in version 1.5 are approximate), `trades_1877.csv` (directory trades at every orientation of the 30 corners: 46 tested, 14 untestable), `directory_lines.md` (all directory lines relied on, 1860–1906), `configurations_phase1.csv` (the 187 opening configurations of version 1.4, generated), `chance_multiverse.csv` (36 variants of the chance analysis, generated) |
+| `src/` | `geo.py` (local frame, facades, blocks), `census.py` (configurations, filters, documentary selection, sensitivity, LaTeX tables), `chance.py` (chance rates and Bayes factors, with SciPy), `figures.py` (the three deterministic figures) |
+| `evidence/` | `model_reading_sensitivity.md` (aggregate record of the model readings used up to version 1.4, no longer used as evidence), NLS viewer screenshots (with the layer's "Re-use: CC-BY (NLS)" header), `map_openings_OS1857.png` (hand-annotated extract of the NLS layer keying the opening codes), `PROVENANCE.md` |
 | `tests/` | `test_pipeline.py` |
 
 ## Status and publication
 
-Version 1.4 (13 November 2026) is the only public version; earlier drafts were withdrawn. Page and panel references count from the first page of each story, with a correspondence to the book pages of the French and English editions; references not yet checked against the printed pages are marked as provisional in the paper. An independent human reading of the pages is still wanted. The repository is archived on Zenodo: version DOI [10.5281/zenodo.24195132](https://doi.org/10.5281/zenodo.24195132), concept DOI [10.5281/zenodo.24170392](https://doi.org/10.5281/zenodo.24170392).
+Version 1.5 (13 November 2026) revises version 1.4, whose conclusion that Jamaica and Howard NE was the probable topographic basis of the scene is withdrawn; earlier drafts were withdrawn. Still to check: the rows of `data/trades_1877.csv` read in the OCR only (page images), the references marked provisional in the paper (printed pages), the coordinates of the four corners added in version 1.5 (to re-digitise on the NLS 1857 layer), and the 1877–78 valuation roll. The repository is archived on Zenodo; the concept DOI [10.5281/zenodo.24170392](https://doi.org/10.5281/zenodo.24170392) resolves to the latest version.
 
 The citable release archive contains the scientific inputs, code, aggregate sensitivity record and paper; raw AI prompts, conversations and editorial working reports are not distributed.
 
@@ -35,24 +40,24 @@ Maps: Ordnance Survey 1:500 town plans of Glasgow, surveyed 1857–58 and 1892�
 
 ## How to cite
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24195132.svg)](https://doi.org/10.5281/zenodo.24195132)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24170392.svg)](https://doi.org/10.5281/zenodo.24170392)
 
-Labarrère, M. (2026). *A Street Corner for a Dime: Placing Don Rosa's 1877 Glasgow Shoeshine Scene* (preprint, version 1.4). Zenodo. https://doi.org/10.5281/zenodo.24195132
+Labarrère, M. (2026). *A Street Corner for a Dime: Don Rosa's Glasgow and the Chance of a Match* (preprint, version 1.5). Zenodo. https://doi.org/10.5281/zenodo.24170392
 
 ```bibtex
 @misc{labarrere2026streetcorner,
   author    = {Labarr{\`e}re, Micka{\"e}l},
-  title     = {A Street Corner for a Dime: Placing Don Rosa's 1877 Glasgow Shoeshine Scene},
+  title     = {A Street Corner for a Dime: Don Rosa's Glasgow and the Chance of a Match},
   year      = {2026},
   publisher = {Zenodo},
-  note      = {Preprint, version 1.4},
-  doi       = {10.5281/zenodo.24195132},
-  url       = {https://doi.org/10.5281/zenodo.24195132}
+  note      = {Preprint, version 1.5},
+  doi       = {10.5281/zenodo.24170392},
+  url       = {https://doi.org/10.5281/zenodo.24170392}
 }
 ```
 
-The DOI above identifies version 1.4. The concept DOI [10.5281/zenodo.24170392](https://doi.org/10.5281/zenodo.24170392) resolves to the latest published version. Author ORCID: [0009-0006-0822-3649](https://orcid.org/0009-0006-0822-3649).
+The concept DOI above resolves to the latest published version; version 1.4 is [10.5281/zenodo.24195132](https://doi.org/10.5281/zenodo.24195132). Author ORCID: [0009-0006-0822-3649](https://orcid.org/0009-0006-0822-3649).
 
 ## Licences
 
-Original text, data files (`data/`, Markdown files in `evidence/`), tables and diagrams: CC BY 4.0 (`LICENSE-CC-BY-4.0.md`). Source code (`src/`, `tests/`, `Makefile`): MIT (`LICENSE`). Directory lines are transcribed from the National Library of Scotland digitisation on the Internet Archive (CC BY-NC-SA 2.5 Scotland). Third-party maps keep their stated rights (OS plans redrawn from the National Library of Scotland georeferenced layers, CC-BY (NLS)). No comic panel is reproduced.
+Original text, data files (`data/`, Markdown files in `evidence/`), tables and diagrams: CC BY 4.0 (`LICENSE-CC-BY-4.0.md`), except the directory transcriptions (`data/directory_lines.md` and the quoted directory text in `data/trades_1877.csv`), which follow the source's CC BY-NC-SA 2.5 Scotland terms. Source code (`src/`, `tests/`, `Makefile`): MIT (`LICENSE`). The directory digitisation is the National Library of Scotland's, on the Internet Archive (CC BY-NC-SA 2.5 Scotland). Third-party maps keep their stated rights (OS plans redrawn from the National Library of Scotland georeferenced layers, CC-BY (NLS)). No comic panel is reproduced.

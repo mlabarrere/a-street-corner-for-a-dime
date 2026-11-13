@@ -1,12 +1,13 @@
 """Local geometry of the Jamaica Street / Howard Street quarter, Glasgow, from the OS 1857 survey (NLS).
 All coordinates in metres; origin = north-east corner of Jamaica/Howard (55.85717, -4.25709), x east, y north."""
 import math, csv
+from pyproj import Transformer
 
 LAT0, LON0 = 55.85717, -4.25709
-R = 6371000.0
+# Local azimuthal equidistant projection on the WGS84 ellipsoid, centred on the origin (metres, x east, y north).
+_TO_LOCAL = Transformer.from_crs('EPSG:4326', f'+proj=aeqd +lat_0={LAT0} +lon_0={LON0} +datum=WGS84 +units=m', always_xy=True)
 def enu(lat, lon):
-    x = (lon - LON0) * math.pi / 180 * R * math.cos(LAT0 * math.pi / 180)
-    y = (lat - LAT0) * math.pi / 180 * R
+    x, y = _TO_LOCAL.transform(lon, lat)
     return (x, y)
 
 # ---- reference points read by the author on the NLS 1857 layer (corners listed in data/corners_reference_OS1857.csv; the remaining points were read for the figures only)
@@ -25,7 +26,7 @@ P = {
  'DGC_NE': enu(55.85607,-4.25586), 'DGC_NW': enu(55.85614,-4.25608),
  'BW_NE': enu(55.85663,-4.25856), 'BW_NW': enu(55.85669,-4.25871),
  'ACL_Ar_W': enu(55.85817,-4.25587),   # NE corner of the block west of Adam's Court Lane, on Argyle
- 'ACL_Ar_E': enu(55.85817,-4.25580),   # approx. (lane width 4.4 m)
+ 'ACL_Ar_E': enu(55.85817,-4.25580),   # approx., for the figures only (the lane is 3.9 m wide at its Howard St mouth, census.WIDTH)
  'UM_SE': enu(55.85833,-4.25588),      # Union-Mitchell block, SE corner
  'Union_E': enu(55.85840,-4.25665),    # corner of Union St on Argyle (east side)
  'Alston_W': enu(55.85851,-4.25781), 'Alston_E': enu(55.85850,-4.25766),
@@ -89,4 +90,3 @@ def unit(p, q):
     dx, dy = q[0]-p[0], q[1]-p[1]; n = math.hypot(dx, dy); return (dx/n, dy/n)
 U_JAM = unit(P['JH_NE'], P['JAr_SE'])     # northwards along Jamaica
 U_HOW = unit(P['JH_NE'], P['HStE_NW'])    # eastwards along Howard
-W_JAM = 22.9; W_HOW = 11.5
