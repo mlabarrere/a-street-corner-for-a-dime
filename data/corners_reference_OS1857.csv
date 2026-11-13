@@ -1,0 +1,27 @@
+corner;lat;lon;method
+Ann × Oswald, NE corner;55.85761;-4.25959;vertex (intersection of building lines)
+Ann × Oswald, SE corner;55.85751;-4.25959;vertex (intersection of building lines)
+Broomielaw × Wood Lane, NE corner;55.85663;-4.25856;end of building measured 2.5–4 m from the building line
+Broomielaw × Wood Lane, NW corner;55.85669;-4.25871;end of building measured 2.5–4 m from the building line
+Dixon × Fox, NE corner;55.85641;-4.25562;end of building measured 2.5–4 m from the building line
+Dixon × Fox, SE corner;55.85634;-4.25568;end of building measured 2.5–4 m from the building line
+Dixon × Great Clyde, NE corner;55.85607;-4.25586;end of building measured 2.5–4 m from the building line
+Dixon × Great Clyde, NW corner;55.85614;-4.25608;vertex (intersection of building lines)
+Howard × Adams Court Lane, NE corner;55.85700;-4.25624;end of building measured 2.5–4 m from the building line
+Howard × Adams Court Lane, NW corner;55.85701;-4.25630;end of building measured 2.5–4 m from the building line
+Howard × Dixon, SE corner;55.85673;-4.25541;vertex (intersection of building lines)
+Howard × Dixon, SW corner;55.85677;-4.25566;vertex (intersection of building lines)
+Howard × St Enoch's Square, NW corner;55.85693;-4.25585;end of building measured 2.5–4 m from the building line
+Jamaica × Ann, NW corner;55.85747;-4.25734;vertex (intersection of building lines)
+Jamaica × Ann, SW corner;55.85737;-4.25738;vertex (intersection of building lines)
+Jamaica × Argyle, SE corner;55.85826;-4.25669;end of building measured 2.5–4 m from the building line
+Jamaica × Argyle, SW corner;55.85827;-4.25705;end of building measured 2.5–4 m from the building line
+Jamaica × Broomielaw, NW corner;55.85650;-4.25769;vertex (intersection of building lines)
+Jamaica × Great Clyde, NE corner;55.85647;-4.25734;vertex (intersection of building lines)
+Jamaica × Howard, NE corner;55.85717;-4.25709;vertex (intersection of building lines)
+Jamaica × Howard, SE corner;55.85706;-4.25712;vertex (intersection of building lines)
+Oswald × Argyle, SE corner;55.85850;-4.25960;end of building measured 2.5–4 m from the building line
+Oswald × Argyle, SW corner;55.85853;-4.25988;end of building measured 2.5–4 m from the building line
+Oswald × Broomielaw, NE corner;55.85666;-4.25958;vertex (intersection of building lines)
+Oswald × Broomielaw, NW corner;55.85667;-4.25989;end of building measured 2.5–4 m from the building line
+Howard × St Enoch's Square, NE corner;55.85676;-4.25502;end of building, read in code (census.py) from the plan

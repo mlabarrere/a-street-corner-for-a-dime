@@ -1,0 +1,3 @@
+# Keep the citable release archive focused on the scientific record.
+.gitignore export-ignore
+.gitattributes export-ignore

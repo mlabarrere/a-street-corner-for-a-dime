@@ -1,0 +1,54 @@
+cff-version: 1.2.0
+message: "If you use this paper, data, or code, please cite the paper as below."
+title: "A Street Corner for a Dime: Placing Don Rosa's 1877 Glasgow Shoeshine Scene"
+type: software
+authors:
+  - family-names: Labarrère
+    given-names: Mickaël
+    affiliation: Independent researcher
+    orcid: "https://orcid.org/0009-0006-0822-3649"
+repository-code: "https://github.com/mlabarrere/a-street-corner-for-a-dime"
+url: "https://doi.org/10.5281/zenodo.24170392"
+doi: 10.5281/zenodo.24170392
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24170392
+    description: "Concept DOI, all versions; the version DOI is given on the Zenodo record"
+date-released: 2026-11-13
+version: "1.4"
+abstract: >-
+  A reproducible topographic test of Don Rosa's 1877 Glasgow shoeshine scene
+  against the Ordnance Survey 1:500 plans and the Post Office directories.
+  Of 187 configurations on twelve selected facades, 17 on five corners pass
+  the author's contested width-ratio model; Jamaica Street and Howard Street NE
+  is the only one of those five with affirmative 1877-78 evidence for both
+  required trades. The drawn distance is shorter than any admissible opening,
+  and the model-read width ratio removes the candidate. Jamaica and Howard NE
+  is the strongest candidate and the probable topographic basis of the scene,
+  although literal single-source copying is not established. Measuring the
+  viewing angles on the plan keeps the same five corners.
+license:
+  - CC-BY-4.0
+  - MIT
+keywords:
+  - Don Rosa
+  - Glasgow
+  - historical GIS
+  - Ordnance Survey
+  - street directories
+  - comics studies
+  - reproducible research
+preferred-citation:
+  type: generic
+  title: "A Street Corner for a Dime: Placing Don Rosa's 1877 Glasgow Shoeshine Scene"
+  authors:
+    - family-names: Labarrère
+      given-names: Mickaël
+      orcid: "https://orcid.org/0009-0006-0822-3649"
+  year: 2026
+  version: "1.4"
+  publisher:
+    name: Zenodo
+  doi: 10.5281/zenodo.24170392
+  url: "https://doi.org/10.5281/zenodo.24170392"
+  notes: "Preprint"

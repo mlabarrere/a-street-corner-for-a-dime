@@ -1,0 +1,214 @@
+\begin{thebibliography}{27}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Aubry et~al.(2014)Aubry, Russell, and Sivic]{aubry2014painting}
+Mathieu Aubry, Bryan~C. Russell, and Josef Sivic.
+\newblock Painting-to-{3D} model alignment via discriminative visual elements.
+\newblock \emph{ACM Transactions on Graphics}, 33\penalty0 (2):\penalty0
+  14:1--14:14, 2014.
+\newblock \doi{10.1145/2591009}.
+
+\bibitem[Benedikt(1979)]{benedikt1979isovist}
+M.~L. Benedikt.
+\newblock To take hold of space: Isovists and isovist fields.
+\newblock \emph{Environment and Planning B: Planning and Design}, 6\penalty0
+  (1):\penalty0 47--65, 1979.
+\newblock \doi{10.1068/b060047}.
+
+\bibitem[{Canmore (Historic Environment Scotland)}(n.d.)]{canmorePaisley}
+{Canmore (Historic Environment Scotland)}.
+\newblock {Glasgow}, 72 {Jamaica Street}, {Paisley's Outfitters}.
+\newblock Canmore catalogue, \url{https://canmore.org.uk}, record found by
+  searching ``Paisley's, Jamaica Street'', n.d.
+\newblock Accessed 12 November 2026.
+
+\bibitem[Cura et~al.(2018)Cura, Dumenieu, Abadie, Costes, Perret, and
+  Gribaudi]{cura2018geocoding}
+R{\'e}mi Cura, Bertrand Dumenieu, Nathalie Abadie, Benoit Costes, Julien
+  Perret, and Maurizio Gribaudi.
+\newblock Historical collaborative geocoding.
+\newblock \emph{ISPRS International Journal of Geo-Information}, 7\penalty0
+  (7):\penalty0 262, 2018.
+\newblock \doi{10.3390/ijgi7070262}.
+\newblock Preprint arXiv:1703.07138.
+
+\bibitem[Dittmer(2010)]{dittmer2010visualities}
+Jason Dittmer.
+\newblock Comic book visualities: A methodological manifesto on geography,
+  montage and narration.
+\newblock \emph{Transactions of the Institute of British Geographers},
+  35\penalty0 (2):\penalty0 222--236, 2010.
+\newblock \doi{10.1111/j.1475-5661.2009.00376.x}.
+
+\bibitem[Frajer and {\v{S}}im{\'a}{\v{c}}ek(2019)]{frajer2019canvas}
+Jind{\v{r}}ich Frajer and Petr {\v{S}}im{\'a}{\v{c}}ek.
+\newblock Localisation of the painter's canvas: Landscape paintings from the
+  {Iron Mountains} ({Czech Republic}).
+\newblock \emph{Journal of Maps}, 15\penalty0 (3):\penalty0 66--74, 2019.
+\newblock \doi{10.1080/17445647.2018.1563570}.
+
+\bibitem[{Grace's Guide}(n.d.)]{gracesPaisley}
+{Grace's Guide}.
+\newblock Paisleys.
+\newblock \url{https://www.gracesguide.co.uk/Paisleys}, n.d.
+\newblock Paisleys Limited, 1911: 82--96 Jamaica Street and 2--12 Broomielaw.
+  Accessed 13 November 2026.
+
+\bibitem[Gregory and Ell(2007)]{gregory2007hgis}
+Ian~N. Gregory and Paul~S. Ell.
+\newblock \emph{Historical {GIS}: Technologies, Methodologies and Scholarship}.
+\newblock Cambridge University Press, Cambridge, 2007.
+\newblock \doi{10.1017/CBO9780511493645}.
+
+\bibitem[{Historic Environment Scotland}(n.d.)]{hesGardner}
+{Historic Environment Scotland}.
+\newblock 36 {Jamaica Street} and 10 {Midland Street}, {Gardner's} ({LB33065}).
+\newblock Listed Building record,
+  \url{https://portal.historicenvironment.scot/designation/LB33065}, n.d.
+\newblock Category A; warehouse built 1855--56. Accessed 12 November 2026.
+
+\bibitem[{Inducks}(n.d.)]{inducks}
+{Inducks}.
+\newblock Story codes {D~91249} and {D~91308}.
+\newblock \url{https://inducks.org}, n.d.
+
+\bibitem[Lef{\`e}vre(2008)]{lefevre2008space}
+Pascal Lef{\`e}vre.
+\newblock The construction of space in comics.
+\newblock In Jeet Heer and Kent Worcester, editors, \emph{A Comics Studies
+  Reader}, pages 157--162. University Press of Mississippi, 2008.
+\newblock \doi{10.2307/j.ctt2tvd9s.21}.
+
+\bibitem[{National Records of Scotland}(n.d.)]{nrsVR102}
+{National Records of Scotland}.
+\newblock {Valuation Rolls}: {Glasgow Burgh}, {VR102} (1855--1975).
+\newblock NRS online catalogue; VR102/223--226 (1875--76, Glasgow), VR102/232
+  (index of streets, 1875), VR102/233--235 (1876--77), VR102/242--245
+  (1877--78), n.d.
+
+\bibitem[Olson(2014)]{olson2014sleuth}
+Donald~W. Olson.
+\newblock \emph{Celestial Sleuth: Using Astronomy to Solve Mysteries in Art,
+  History and Literature}.
+\newblock Springer, New York, 2014.
+\newblock \doi{10.1007/978-1-4614-8403-5}.
+
+\bibitem[{Ordnance Survey}(1859)]{nls1857}
+{Ordnance Survey}.
+\newblock Town plan of {Glasgow}, 1:500, surveyed 1857--58, published 1859,
+  sheets {Lanarkshire VI.10.15 and VI.10.20}.
+\newblock National Library of Scotland, georeferenced layer 80,
+  \url{https://maps.nls.uk/townplans/glasgow_1.html}, 1859.
+\newblock Licence CC-BY (NLS).
+
+\bibitem[{Ordnance Survey}(1895)]{nls1893}
+{Ordnance Survey}.
+\newblock Town plan of {Glasgow}, 1:500, surveyed 1892--94, published 1894--95.
+\newblock National Library of Scotland, georeferenced layer 81,
+  \url{https://maps.nls.uk/townplans/glasgow_2.html}, 1895.
+\newblock Licence CC-BY (NLS).
+
+\bibitem[Ottens(2020{\natexlab{a}})]{ottens2020clan}
+Nick Ottens.
+\newblock The times of {Scrooge McDuck}: {The Last of the Clan McDuck}.
+\newblock Never Was magazine, 9 April 2020,
+  \url{https://neverwasmag.com/2020/04/the-times-of-scrooge-mcduck-the-last-of-the-clan-mcduck/},
+  2020{\natexlab{a}}.
+\newblock Accessed 13 November 2026.
+
+\bibitem[Ottens(2020{\natexlab{b}})]{ottens2020neverwas}
+Nick Ottens.
+\newblock The times of {Scrooge McDuck}: {Of Ducks and Dimes and Destinies}.
+\newblock Never Was magazine, 12 April 2020,
+  \url{https://neverwasmag.com/2020/04/the-times-of-scrooge-mcduck-of-ducks-and-dimes-and-destinies/},
+  2020{\natexlab{b}}.
+\newblock Review; places the story in and around Jamaica Street from the
+  printed plate, notes that Paisley's was a real outfitter, doubts that the
+  visitor's arrival street is Jamaica Street because of the 1872 tramline and
+  asks readers to name that street; the title is printed there as \emph{Of
+  Ducks and Dimes and Destinies}. Accessed 13 November 2026.
+
+\bibitem[Plewe(2002)]{plewe2002uncertainty}
+Brandon Plewe.
+\newblock The nature of uncertainty in historical geographic information.
+\newblock \emph{Transactions in GIS}, 6\penalty0 (4):\penalty0 431--456, 2002.
+\newblock \doi{10.1111/1467-9671.00121}.
+
+\bibitem[{Post Office}(1860--1906)]{pod}
+{Post Office}.
+\newblock {Post-Office Annual Glasgow Directory}.
+\newblock National Library of Scotland digitisation on Internet Archive,
+  identifiers \texttt{postofficeannual<yy><yy>gla} (e.g.
+  \url{https://archive.org/details/postofficeannual187778gla} for 1877--78),
+  1860--1906.
+\newblock Volumes 1860--61, 1865--66, 1870--71, 1876--77 to 1881--82, 1885--86,
+  1890--91 to 1892--93, 1895--96, 1905--06 read in OCR; the 1877--78 lines
+  marked $\dagger$ in Appendix~A checked on the page images by the author.
+  Digitisation published under CC BY-NC-SA 2.5 Scotland. Accessed 12 and 13
+  November 2026.
+
+\bibitem[Rosa(1992)]{rosaPencils}
+Don Rosa.
+\newblock Pencil layouts for \emph{The Last of the Clan McDuck}, pages 6--7.
+\newblock Scans of the artist's pencil pages, circulated online with his
+  copyright notice, 1992.
+\newblock Consulted November 2026; not reproduced.
+
+\bibitem[Rosa(2012)]{rosa2012glenat1}
+Don Rosa.
+\newblock \emph{La Grande \'epop\'ee de Picsou -- Int\'egrale Don Rosa, t.~1:
+  La Jeunesse de Picsou 1/2}.
+\newblock Gl\'enat, Grenoble, 2012.
+\newblock French edition; \emph{Le Dernier du clan McPicsou} pp.~11--25.
+
+\bibitem[Rosa(2013)]{rosa2012glenat2}
+Don Rosa.
+\newblock \emph{La Grande \'epop\'ee de Picsou -- Int\'egrale Don Rosa, t.~2:
+  La Jeunesse de Picsou 2/2}.
+\newblock Gl\'enat, Grenoble, 2013.
+\newblock French edition; author's note pp.\ 4--6, \emph{Canards, cents et
+  destin\'ees~!} pp.~9--23, commentary pp.\ 24--26.
+
+\bibitem[Rosa(2015)]{rosa2015library4}
+Don Rosa.
+\newblock \emph{The Don Rosa Library, Vol.\ 4: The Last of the Clan McDuck}.
+\newblock Fantagraphics Books, Seattle, 2015.
+\newblock Contains \emph{Of Ducks, Dimes and Destinies} (Inducks D~91249,
+  pp.~9--23) and \emph{The Last of the Clan McDuck} (D~91308, pp.~25--39), with
+  the author's commentaries.
+
+\bibitem[{ScotlandsPeople}(2026)]{spVR}
+{ScotlandsPeople}.
+\newblock Valuation rolls, 1855--1940 (decennial years).
+\newblock \url{https://www.scotlandspeople.gov.uk/guides/valuation-rolls},
+  2026.
+\newblock Only the 1875--76 roll is online for the 1870s; 2 credits per image.
+  Accessed 9 November 2026.
+
+\bibitem[Shaw(1984)]{shaw1984directories}
+Gareth Shaw.
+\newblock Directories as sources in urban history: A review of {British} and
+  {Canadian} material.
+\newblock \emph{Urban History Yearbook}, 11:\penalty0 36--44, 1984.
+\newblock \doi{10.1017/S0963926800006908}.
+
+\bibitem[{Wikipedia contributors}(n.d.)]{wikiGlasgowTram}
+{Wikipedia contributors}.
+\newblock {Glasgow Tramway and Omnibus Company}.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Glasgow_Tramway_and_Omnibus_Company}, n.d.
+\newblock Accessed 13 November 2026.
+
+\bibitem[Zohar and Shimshoni(2021)]{zohar2021engravings}
+Motti Zohar and Ilan Shimshoni.
+\newblock {GIScience} integrated with computer vision for the examination of
+  old engravings and drawings.
+\newblock \emph{International Journal of Geographical Information Science},
+  35\penalty0 (9):\penalty0 1703--1724, 2021.
+\newblock \doi{10.1080/13658816.2021.1874957}.
+
+\end{thebibliography}

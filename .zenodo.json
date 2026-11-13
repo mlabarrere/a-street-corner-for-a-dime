@@ -1,0 +1,28 @@
+{
+  "title": "A Street Corner for a Dime: Placing Don Rosa's 1877 Glasgow Shoeshine Scene",
+  "description": "Paper, data and reproducible code testing Don Rosa's 1877 Glasgow shoeshine scene against Ordnance Survey 1:500 plans and Post Office directories. The census contains 187 configurations on twelve selected facades. Under the author's contested width-ratio filter, 17 configurations on five corners pass the geometric model; Jamaica Street and Howard Street NE is the only one of those five with affirmative 1877-78 evidence for both required trades. Every reading of the drawn distance, the author's included, is shorter than any admissible opening; the range of the model-read width ratios removes the candidate, though their envelope keeps it; measuring the viewing angles on the plan instead of treating the streets as perpendicular keeps the same five corners. Jamaica and Howard NE is the strongest candidate and the probable topographic basis of the scene; literal single-source copying is not established. Version 1.4 applies an audit of version 1.3: it describes the distance d as the census computes it, adds a plan-angle sensitivity, corrects the status of the author's readings, states how the hiding views bear on the model and how Rosa's panel numbering compares with ours, scopes Ottens's tram objection, completes the directory evidence (1870-71, Oswald Street) and adds tests. The census is unchanged.",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [
+    {
+      "name": "Labarrère, Mickaël",
+      "affiliation": "Independent researcher",
+      "orcid": "0009-0006-0822-3649"
+    }
+  ],
+  "publication_date": "2026-11-13",
+  "license": "cc-by-4.0",
+  "keywords": [
+    "Don Rosa",
+    "Glasgow",
+    "historical GIS",
+    "Ordnance Survey",
+    "street directories",
+    "comics studies",
+    "reproducible research"
+  ],
+  "language": "eng",
+  "access_right": "open",
+  "version": "1.4",
+  "notes": "Concept DOI: 10.5281/zenodo.24170392 (all versions). Original text, data files, tables and diagrams: CC BY 4.0. Source code (src/, tests/, Makefile): MIT. Third-party maps keep their stated rights; no comic panel is reproduced. AI use is disclosed in the paper; the release contains aggregate sensitivity results, not raw prompts or conversations. Changes are listed in CHANGELOG.md."
+}
