@@ -1,6 +1,6 @@
 # A Street Corner for a Dime
 
-Where did Don Rosa's ten-year-old Scrooge McDuck earn his first coin? The paper (`paper/main.pdf`, preprint version 1.4, 13 November 2026; concept DOI [10.5281/zenodo.24170392](https://doi.org/10.5281/zenodo.24170392)) tests the shoeshine scene of *The Last of the Clan McDuck* and *Of Ducks, Dimes and Destinies* against the Ordnance Survey 1:500 plans of Glasgow (1857–58, 1892–94) and sampled Post Office directories (1860–1906). On twelve selected facades, 187 corner-and-opening configurations are censused. Under the author's contested width-ratio filter, 17 configurations on five corners pass the geometric model; Jamaica Street and Howard Street NE is the only one of those five with affirmative 1877–78 evidence for both required trades. No principal survivor meets the model-read 17 m distance, one configuration (Howard Street and Adam's Court Lane NW, opening HS3) meets the 20.4 m threshold of the author's earlier working dossier, and the range of the model-read central width ratios leaves two configurations at one corner whose corner premises the 1877–78 directory gives to a non-clothier, although the envelope of those readings keeps the candidate. Measuring the viewing angles on the plan instead of treating the streets as perpendicular keeps the same five corners. Those non-metric proportions are weaker evidence than the conjunction of named street, geometry and trades: Jamaica and Howard NE is the strongest candidate and the probable topographic basis of the scene, although literal single-source copying is not established.
+Where did Don Rosa's ten-year-old Scrooge McDuck earn his first coin? The paper (`paper/main.pdf`, preprint version 1.4, 13 November 2026; version DOI [10.5281/zenodo.24195132](https://doi.org/10.5281/zenodo.24195132)) tests the shoeshine scene of *The Last of the Clan McDuck* and *Of Ducks, Dimes and Destinies* against the Ordnance Survey 1:500 plans of Glasgow (1857–58, 1892–94) and sampled Post Office directories (1860–1906). On twelve selected facades, 187 corner-and-opening configurations are censused. Under the author's contested width-ratio filter, 17 configurations on five corners pass the geometric model; Jamaica Street and Howard Street NE is the only one of those five with affirmative 1877–78 evidence for both required trades. No principal survivor meets the model-read 17 m distance, one configuration (Howard Street and Adam's Court Lane NW, opening HS3) meets the 20.4 m threshold of the author's earlier working dossier, and the range of the model-read central width ratios leaves two configurations at one corner whose corner premises the 1877–78 directory gives to a non-clothier, although the envelope of those readings keeps the candidate. Measuring the viewing angles on the plan instead of treating the streets as perpendicular keeps the same five corners. Those non-metric proportions are weaker evidence than the conjunction of named street, geometry and trades: Jamaica and Howard NE is the strongest candidate and the probable topographic basis of the scene, although literal single-source copying is not established.
 
 ## Reproduce
 
@@ -27,24 +27,17 @@ Hand-entered inputs: street widths (`WIDTH` in `src/census.py`, read with the NL
 
 ## Status and publication
 
-Version 1.4 applies the corrections of an audit of version 1.3; version 1.3 answered an external review of version 1.0 and a consistency review of an earlier draft. `CHANGELOG.md` lists what changed and why. Page and panel references count from the first page of each story, with a correspondence to the book pages of the French and English editions; references not yet checked against the printed pages are marked as provisional in the paper. An independent human reading of the pages is still wanted. The repository is archived on Zenodo (concept DOI 10.5281/zenodo.24170392, all versions).
+Version 1.4 (13 November 2026) is the only public version; earlier drafts were withdrawn. Page and panel references count from the first page of each story, with a correspondence to the book pages of the French and English editions; references not yet checked against the printed pages are marked as provisional in the paper. An independent human reading of the pages is still wanted. The repository is archived on Zenodo: version DOI [10.5281/zenodo.24195132](https://doi.org/10.5281/zenodo.24195132), concept DOI [10.5281/zenodo.24170392](https://doi.org/10.5281/zenodo.24170392).
 
-The citable release archive contains the scientific inputs, code, aggregate sensitivity record and paper; it does not contain raw AI prompts, conversations or editorial working reports. Earlier working files, including those, remain in the public Git history (tags v7 to v1.0).
-
-| Version | Date | Zenodo DOI |
-|---|---|---|
-| 1.4 (tag `v1.4`) | 13 November 2026 | given on the Zenodo record; concept DOI [10.5281/zenodo.24170392](https://doi.org/10.5281/zenodo.24170392) |
-| 1.3 (tag `v1.3`) | 13 November 2026 | [10.5281/zenodo.24192371](https://doi.org/10.5281/zenodo.24192371) |
-| 1.2 (tag `v1.2`) | 12 November 2026 | [10.5281/zenodo.24173283](https://doi.org/10.5281/zenodo.24173283) |
-| drafts 7 and 7.1, versions 1.0 and 1.1 (tags `v7`, `v7.1`, `v1.0`, `v1.1`) | 12 November 2026 | no current Zenodo record; cite version 1.2 or later |
+The citable release archive contains the scientific inputs, code, aggregate sensitivity record and paper; raw AI prompts, conversations and editorial working reports are not distributed.
 
 Maps: Ordnance Survey 1:500 town plans of Glasgow, surveyed 1857–58 and 1892–94, redrawn from the georeferenced layers of the National Library of Scotland (layer re-use statement CC-BY (NLS), consulted 9 November 2026). No comic panel is reproduced: the author's photographs of the comic pages and of the directory pages are not distributed.
 
 ## How to cite
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24170392.svg)](https://doi.org/10.5281/zenodo.24170392)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24195132.svg)](https://doi.org/10.5281/zenodo.24195132)
 
-Labarrère, M. (2026). *A Street Corner for a Dime: Placing Don Rosa's 1877 Glasgow Shoeshine Scene* (preprint, version 1.4). Zenodo. https://doi.org/10.5281/zenodo.24170392
+Labarrère, M. (2026). *A Street Corner for a Dime: Placing Don Rosa's 1877 Glasgow Shoeshine Scene* (preprint, version 1.4). Zenodo. https://doi.org/10.5281/zenodo.24195132
 
 ```bibtex
 @misc{labarrere2026streetcorner,
@@ -53,12 +46,12 @@ Labarrère, M. (2026). *A Street Corner for a Dime: Placing Don Rosa's 1877 Glas
   year      = {2026},
   publisher = {Zenodo},
   note      = {Preprint, version 1.4},
-  doi       = {10.5281/zenodo.24170392},
-  url       = {https://doi.org/10.5281/zenodo.24170392}
+  doi       = {10.5281/zenodo.24195132},
+  url       = {https://doi.org/10.5281/zenodo.24195132}
 }
 ```
 
-The DOI above is the concept DOI: it covers all versions and resolves to the latest published version, here 1.4; the DOI of each version is given on its Zenodo record and in the table above. Author ORCID: [0009-0006-0822-3649](https://orcid.org/0009-0006-0822-3649).
+The DOI above identifies version 1.4. The concept DOI [10.5281/zenodo.24170392](https://doi.org/10.5281/zenodo.24170392) resolves to the latest published version. Author ORCID: [0009-0006-0822-3649](https://orcid.org/0009-0006-0822-3649).
 
 ## Licences
 

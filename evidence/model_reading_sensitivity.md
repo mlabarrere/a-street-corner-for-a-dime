@@ -4,7 +4,7 @@ Date: 10 November 2026. Five Claude model instances read either 10 or 14 supplie
 
 Adult height H is converted at 1.7 m. Page and panel labels used in the readings were the working labels of the time; the paper's references were re-established against the printed pages, and the table at the end maps the old labels to them.
 
-Readers are listed in the same order (A to E) in every row. The version 1.0 summary swapped the width and ratio values of readers A and B; the values here follow the verbatim record.
+Readers are listed in the same order (A to E) in every row. An earlier summary swapped the width and ratio values of readers A and B; the values here follow the verbatim record.
 
 | Quantity | Individual central readings | Aggregate used in sensitivity analysis |
 |---|---|---|
@@ -27,9 +27,9 @@ Readers are listed in the same order (A to E) in every row. The version 1.0 summ
 
 The drawings are non-metric: no panel shows both street widths cleanly, perspective and focal length are unknown, and the distance intervals are broad. The readings are therefore reported as sensitivity tests rather than as archival facts or a substitute for human iconographic assessment.
 
-## Working labels in the earlier verbatim record
+## Working labels in the earlier working files
 
-The verbatim record of these readings (`blind_readings_v3*`, `src/blind_reading/`) and the working reports (`expertise/`) are kept unchanged in the version 1.0 archive and in the Git history. Their page and panel labels mix story pages, book pages and pencil numbering. The paper counts pages from the first page of each story and panels from left to right, then top to bottom; chapter 0 story page n is book page n + 8 in *The Don Rosa Library* vol. 4 and in Glénat vol. 2; chapter 1 story page n is book page n + 24 in the former and n + 10 in Glénat vol. 1. References marked provisional in the paper have not yet been checked against the printed page.
+The verbatim record of these readings and the editorial working reports are not distributed. Their page and panel labels mix story pages, book pages and pencil numbering. The paper counts pages from the first page of each story and panels from left to right, then top to bottom; chapter 0 story page n is book page n + 8 in *The Don Rosa Library* vol. 4 and in Glénat vol. 2; chapter 1 story page n is book page n + 24 in the former and n + 10 in Glénat vol. 1. References marked provisional in the paper have not yet been checked against the printed page.
 
 | Label in the earlier files | What it denotes | Reference in the paper |
 |---|---|---|
@@ -37,8 +37,8 @@ The verbatim record of these readings (`blind_readings_v3*`, `src/blind_reading/
 | `ch1-p7c6` (image file names) | described in the working reports as the corner view with the watchers' heads cut by the frame | ch. 1 p. 7 panel 4; panel 6 is a hiding view |
 | `C0_EN22`, "ch. 0 p. 22" | book page 22 of *The Don Rosa Library* vol. 4 | ch. 0 p. 14 |
 | "ch. 1 p. 6 panel 8" (called inked in the summary) | the printed page 6 has six panels, so this is the pencil numbering | pencil p. 6 panel 8 (provisional); the printed hiding view is ch. 1 p. 6 panel 6 |
-| "ch. 1 p. 7 panel 4" (version 1.0) and "panel 6" (version 1.2) for the corner view | two different panels | corner view ch. 1 p. 7 panel 4; hiding view ch. 1 p. 7 panel 6 |
-| "pencil draft: 5; paper: 6" (version 1.0 quality check) | index of the corner panel | pencil p. 7 panel 5 (provisional); printed corner view ch. 1 p. 7 panel 4 |
-| "ch. 0 p. 11" for the PAISLEY'S panel (version 1.2) | book page 11 | ch. 0 p. 3, lower-left panel |
-| "p. 15 panel 1" for the PAISLEY'S panel (earlier working dossier, cited in version 1.0 reports) | another label for the sign panel | ch. 0 p. 3, lower-left panel |
-| "p. 7 panel 6" said to be absent from the 10-image set (version 1.0 summary), although an image of that set is named `ch1-p7c6` | one label used for two different things | not used in the paper |
+| "ch. 1 p. 7 panel 4" and "panel 6" in two earlier drafts for the corner view | two different panels | corner view ch. 1 p. 7 panel 4; hiding view ch. 1 p. 7 panel 6 |
+| "pencil draft: 5; paper: 6" (an earlier quality check) | index of the corner panel | pencil p. 7 panel 5 (provisional); printed corner view ch. 1 p. 7 panel 4 |
+| "ch. 0 p. 11" for the PAISLEY'S panel (an earlier draft) | book page 11 | ch. 0 p. 3, lower-left panel |
+| "p. 15 panel 1" for the PAISLEY'S panel (earlier working dossier, cited in earlier reports) | another label for the sign panel | ch. 0 p. 3, lower-left panel |
+| "p. 7 panel 6" said to be absent from the 10-image set (an earlier summary), although an image of that set is named `ch1-p7c6` | one label used for two different things | not used in the paper |
