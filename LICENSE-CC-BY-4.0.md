@@ -16,8 +16,9 @@ No additional restrictions may be applied.
 This notice does not relicense third-party material. Ordnance Survey map
 information redrawn from National Library of Scotland georeferenced layers
 retains the stated CC-BY (NLS) attribution. The directory lines quoted in
-`data/directory_lines.md` are transcribed from the National Library of
-Scotland digitisation of the Post Office Glasgow directories on the Internet
-Archive, which is published under CC BY-NC-SA 2.5 Scotland. No comic panel is
+`data/directory_lines.md`, and the directory text quoted in
+`data/trades_1877.csv`, are transcribed from the National Library of Scotland
+digitisation of the Post Office Glasgow directories on the Internet Archive and
+follow its CC BY-NC-SA 2.5 Scotland terms. No comic panel is
 distributed. Source code (`src/`, `tests/` and the `Makefile`) is separately
 licensed under the MIT licence in `LICENSE`.

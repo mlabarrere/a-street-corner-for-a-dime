@@ -9,7 +9,7 @@
 - Local projection with pyproj and frontage sampling with shapely; distances change by about 0.1 m (JW6: 27.9 m, 17.1 m).
 - Result revised: Jamaica Street × Howard Street NE is the only corner with both trades under the handedness convention, but such a match would arise by chance more often than not, and the later Paisley's corner carries the same pair of trades; version 1.4's "probable topographic basis" is withdrawn.
 - The hiding views are re-read: they draw a roadway between the watchers and the boy and agree with the corner view; the view from the bar confirms the handedness.
-- The text, including the abstract and conclusion, was drafted with Claude Opus 5.5 and approved by the author (see the AI use statement).
+- The paper's AI use statement describes how generative AI was used for this version.
 - `make test` checks that every generated file is byte-identical to what the code writes; `make anon` builds an anonymised PDF.
 
 ## Version 1.4 (13 November 2026; DOI 10.5281/zenodo.24195132)
