@@ -25,13 +25,6 @@ Simon Broadbent.
 \newblock \emph{Journal of the Royal Statistical Society, Series A},
   143\penalty0 (2):\penalty0 109--140, 1980.
 
-\bibitem[{Canmore (Historic Environment Scotland)}(n.d.)]{canmorePaisley}
-{Canmore (Historic Environment Scotland)}.
-\newblock {Glasgow}, 72 {Jamaica Street}, {Paisley's Warehouse}.
-\newblock Canmore ID 161875 (NS56SE 438),
-  \url{https://canmore.org.uk/site/161875}, n.d.
-\newblock Accessed 12 November 2026.
-
 \bibitem[Caquard(2013)]{caquard2013narrative}
 S{\'e}bastien Caquard.
 \newblock Cartography {I}: Mapping narrative cartography.
@@ -86,6 +79,14 @@ Frans Grijzenhout.
 \newblock \emph{Vermeer's Little Street: A View of the Penspoort in Delft}.
 \newblock Rijksmuseum, Amsterdam, 2015.
 \newblock Translated by Lynne Richards.
+
+\bibitem[{Historic Environment Scotland}(n.d.)]{canmorePaisley}
+{Historic Environment Scotland}.
+\newblock {Glasgow}, 72 {Jamaica Street}, {Paisley's Warehouse}.
+\newblock trove.scot, National Record of the Historic Environment ID 161875
+  (NS56SE 438; formerly Canmore), \url{https://www.trove.scot/place/161875},
+  n.d.
+\newblock Accessed 14 November 2026.
 
 \bibitem[Hones(2014)]{hones2014literary}
 Sheila Hones.

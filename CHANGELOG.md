@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- The Historic Environment Scotland record of Paisley's warehouse has moved from Canmore to trove.scot; the reference now points to https://www.trove.scot/place/161875 (the old link redirects). `paper/main.pdf` on the main branch includes this change; the version 1.5 archive on Zenodo keeps the old link.
+
 ## Version 1.5 (13 November 2026; DOI 10.5281/zenodo.24205196)
 
 - Census of every corner of a declared window (30 corners), every point of the facing frontage a possible watching point; the openings recorded in 1857 kept as a sensitivity. Every orientation of every corner is read in the 1877–78 directory, tested or not.

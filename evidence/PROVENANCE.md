@@ -6,7 +6,7 @@ This ledger distinguishes the status of the evidence used in the paper.
 
 | Claim | Source | Date represented | Status | Verification |
 |---|---|---:|---|---|
-| Paisley's was at 72 Jamaica Street | Post Office directories; Canmore catalogue | 1880-82 | attested | directory lines and catalogue description |
+| Paisley's was at 72 Jamaica Street | Post Office directories; Historic Environment Scotland record 161875 (trove.scot, formerly Canmore) | 1880-82 | attested | directory lines and catalogue description |
 | Jamaica/Howard geometry and street widths | OS Glasgow town plan, sheets VI.10.15 and VI.10.20 (`capture1_OS1857_z21_opening.jpg`, `capture2_OS1857_z20_opening_and_Howard.jpg`, `annex_OS1857_z21_measurements.jpg`) | surveyed 1857-58 | measured | NLS viewer and local coordinate data |
 | Hugh Morrison occupied the corner as a clothier | Post Office directory, p. 575 | 1877-78 | attested | page image checked |
 | J. B. Turner traded at 6 Howard Street as a spirit dealer | Post Office directory, p. 573 | 1877-78 | attested | page image checked |
