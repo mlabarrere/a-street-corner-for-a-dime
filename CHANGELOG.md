@@ -1,8 +1,11 @@
 # Changelog
 
-## Unreleased
+## Version 1.6 (15 November 2026)
 
-- The Historic Environment Scotland record of Paisley's warehouse has moved from Canmore to trove.scot; the reference now points to https://www.trove.scot/place/161875 (the old link redirects). `paper/main.pdf` on the main branch includes this change; the version 1.5 archive on Zenodo keeps the old link.
+- New section, "What the photographs tell us". A catalogue of 38 documented photographs of the window, about 1870 to 1914 (`research/photographs/`, links and metadata only), dates their signs against the directory OCR. The ten that show PAISLEY'S are from about 1884 or later and show the later Paisley's corner, with a wine and spirit merchant across Jamaica Street. The view closest to the drawn sign is Tuck's "Sepia" postcard No. 2015 (about 1902–05), the view reproduced by Ottens. No JAMAICA ST. plate and no PEACHY'S were found. Book plates of the Paisley's corner printed before 1992 are listed.
+- Paisley's addresses read in every directory volume from 1870–71 to 1911–12 (OCR): 72 Jamaica Street from 1880–81 to 1882–83, 80 to 96 Jamaica Street from 1883–84.
+- Abstract, limits and conclusion revised accordingly. The census, the chance analysis and their numbers are unchanged.
+- The Historic Environment Scotland record of Paisley's warehouse has moved from Canmore to trove.scot; the reference now points to https://www.trove.scot/place/161875 (the old link redirects).
 
 ## Version 1.5 (13 November 2026; DOI 10.5281/zenodo.24205196)
 

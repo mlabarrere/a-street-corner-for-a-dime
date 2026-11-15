@@ -1,4 +1,4 @@
-\begin{thebibliography}{39}
+\begin{thebibliography}{48}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -41,6 +41,14 @@ R{\'e}mi Cura, Bertrand Dumenieu, Nathalie Abadie, Benoit Costes, Julien
 \newblock \doi{10.3390/ijgi7070262}.
 \newblock Preprint arXiv:1703.07138.
 
+\bibitem[{Detroit Publishing Co.}(n.d.)]{locphotochrom13174}
+{Detroit Publishing Co.}
+\newblock Glasgow bridge, {Glasgow}, {Scotland}.
+\newblock Photochrom print no.~13174, Library of Congress, LCCN 2001706006,
+  \url{https://lccn.loc.gov/2001706006}, n.d.
+\newblock Dated about 1890--94 (data supplement); record read from the
+  Wikimedia Commons copy.
+
 \bibitem[Dittmer(2010)]{dittmer2010visualities}
 Jason Dittmer.
 \newblock Comic book visualities: A methodological manifesto on geography,
@@ -60,6 +68,14 @@ Jind{\v{r}}ich Frajer and Petr {\v{S}}im{\'a}{\v{c}}ek.
 Andrew Gelman and Eric Loken.
 \newblock The statistical crisis in science.
 \newblock \emph{American Scientist}, 102\penalty0 (6):\penalty0 460--465, 2014.
+
+\bibitem[{Glasgow Museums}(n.d.)]{tgse00176}
+{Glasgow Museums}.
+\newblock Glasgow bridge.
+\newblock Photograph, TheGlasgowStory TGSE00176,
+  \url{https://www.theglasgowstory.com/image/?inum=TGSE00176}, n.d.
+\newblock Stated c.~1900; dated about 1884--88 from its signs (data
+  supplement). Accessed 15 November 2026.
 
 \bibitem[{Grace's Guide}(n.d.)]{gracesPaisley}
 {Grace's Guide}.
@@ -94,10 +110,35 @@ Sheila Hones.
   World Spin}}.
 \newblock Palgrave Macmillan, New York, 2014.
 
+\bibitem[House(1974)]{house1974}
+Jack House.
+\newblock \emph{Glasgow Old and New}.
+\newblock EP Publishing, Wakefield, 1974.
+\newblock p.~45, ``Corner of Broomielaw and Jamaica Street -- 1914''; also in
+  the Richard Drew edition, p.~48. Found by full-text search; the plate was not
+  seen.
+
 \bibitem[{Inducks}(n.d.)]{inducks}
 {Inducks}.
 \newblock Story codes {D~91249} and {D~91308}.
 \newblock \url{https://inducks.org}, n.d.
+
+\bibitem[{J. Valentine}(n.d.)]{valentine287}
+{J. Valentine}.
+\newblock The {Broomielaw Bridge}, {Glasgow}. 287. {J.V.}
+\newblock Albumen print, Museum of New Zealand Te Papa Tongarewa, O.008917,
+  \url{https://collections.tepapa.govt.nz/object/360542}, n.d.
+\newblock Dated about 1884--87 from its signs (data supplement). Accessed 15
+  November 2026.
+
+\bibitem[{J. Valentine \& Sons}(n.d.)]{standrews2522}
+{J. Valentine \& Sons}.
+\newblock Jamaica street, {Glasgow}. 2522 {J.V.}
+\newblock Negative JV-2522, University of St Andrews Libraries and Museums,
+  \url{https://collections.st-andrews.ac.uk/item/jamaica-street-glasgow/10483},
+  n.d.
+\newblock Number registered 1882; this negative dated July 1901 or 1902 from
+  its signs (data supplement). Accessed 15 November 2026.
 
 \bibitem[Kass and Raftery(1995)]{kass1995bayes}
 Robert~E. Kass and Adrian~E. Raftery.
@@ -119,6 +160,13 @@ Pascal Lef{\`e}vre.
   Reader}, pages 157--162. University Press of Mississippi, 2008.
 \newblock \doi{10.2307/j.ctt2tvd9s.21}.
 \newblock Reprinted from \emph{Image \& Narrative} 16 (2006).
+
+\bibitem[Morton(1988)]{morton1988}
+Henry~Brougham Morton.
+\newblock \emph{Old {Glasgow}}.
+\newblock Richard Drew, Glasgow, 1988.
+\newblock p.~61; photographs credited to Strathclyde Regional Archive unless
+  stated (p.~4). Found by full-text search; the plate was not seen.
 
 \bibitem[{National Records of Scotland}(n.d.)]{nrsVR102}
 {National Records of Scotland}.
@@ -204,12 +252,28 @@ Brandon Plewe.
   images. Digitisation published under CC BY-NC-SA 2.5 Scotland. Accessed 12
   and 13 November 2026.
 
+\bibitem[Quennell(1978)]{quennell1978}
+Peter Quennell.
+\newblock \emph{The Day Before Yesterday: A Photographic Album of Daily Life in
+  {Victorian} and {Edwardian} {Britain}}.
+\newblock Scribner, New York, 1978.
+\newblock Plate 133, ``Jamaica Street, Glasgow, c.1896''; seen only in the
+  Internet Archive scan, at low resolution.
+
 \bibitem[{RailScot}(n.d.)]{railscotStEnoch}
 {RailScot}.
 \newblock Glasgow {St Enoch}.
 \newblock \url{https://railscot.co.uk/locations/G/Glasgow_St_Enoch}, n.d.
 \newblock Opened 17 October 1876 on the City of Glasgow Union Railway. Accessed
   13 November 2026.
+
+\bibitem[{Raphael Tuck \& Sons}(n.d.)]{tuck2015}
+{Raphael Tuck \& Sons}.
+\newblock Jamaica street. {N}. {Glasgow}.
+\newblock ``Sepia'' Postcard No.~2015, TuckDB item 97807,
+  \url{https://www.tuckdbpostcards.org/items/97807-jamaica-street-n}, n.d.
+\newblock Earliest recorded use 3 October 1902; dated about 1902--05 (data
+  supplement). Accessed 15 November 2026.
 
 \bibitem[Reijnders(2011)]{reijnders2011places}
 Stijn Reijnders.
@@ -274,6 +338,13 @@ Sara Steegen, Francis Tuerlinckx, Andrew Gelman, and Wolf Vanpaemel.
 \newblock \emph{Perspectives on Psychological Science}, 11\penalty0
   (5):\penalty0 702--712, 2016.
 \newblock \doi{10.1177/1745691616658637}.
+
+\bibitem[Stewart(1984)]{stewart1984}
+Ian G.~McM. Stewart.
+\newblock \emph{Glasgow Tramscapes}.
+\newblock Dianswell, 1984.
+\newblock p.~7, ``Paisley's corner at Broomielaw'', R.~B. Napier collection.
+  Found by full-text search; the plate was not seen.
 
 \bibitem[Tunnicliffe(2026)]{tunnicliffe2026central}
 Nerys Tunnicliffe.

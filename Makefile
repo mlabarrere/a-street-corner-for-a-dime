@@ -1,8 +1,8 @@
 PY ?= .venv/bin/python
 TECTONIC ?= tectonic
-# Release builds use a fixed timestamp (2026-11-13 00:00:00 UTC) so the PDF
+# Release builds use a fixed timestamp (2026-11-15 00:00:00 UTC) so the PDF
 # and the complete generated artifact set are byte-for-byte reproducible.
-export SOURCE_DATE_EPOCH ?= 1794528000
+export SOURCE_DATE_EPOCH ?= 1794700800
 
 .PHONY: all setup tables figures paper anon test clean
 
