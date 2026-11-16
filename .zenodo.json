@@ -22,6 +22,6 @@
   ],
   "language": "eng",
   "access_right": "open",
-  "version": "1.6",
+  "version": "1.6.1",
   "notes": "Concept DOI: 10.5281/zenodo.24170392 (all versions). Original text, data files, tables and diagrams: CC BY 4.0, except the directory transcriptions (data/directory_lines.md and the quoted directory text in data/trades_1877.csv), which follow the National Library of Scotland digitisation's CC BY-NC-SA 2.5 Scotland terms. Source code (src/, tests/, Makefile): MIT. Third-party maps keep their stated rights; no comic panel is reproduced. AI use is disclosed in the paper; the release contains aggregate sensitivity results, not raw prompts or conversations. Changes are listed in CHANGELOG.md."
 }

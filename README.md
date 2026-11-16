@@ -1,6 +1,6 @@
 # A Street Corner for a Dime
 
-Where did Don Rosa's ten-year-old Scrooge McDuck earn his first coin, and how often would a match that good turn up by chance? The paper (`paper/main.pdf`, version 1.6, DOI [10.5281/zenodo.24255870](https://doi.org/10.5281/zenodo.24255870)) tests the shoeshine scene of *The Last of the Clan McDuck* and *Of Ducks, Dimes and Destinies* against the Ordnance Survey 1:500 plans of Glasgow (1857–58, 1892–94) and sampled Post Office directories (1860–1906). Every corner of a declared window is censused (30 corners; 46 orientations tested, 14 untestable, every orientation read in the directory), every point of the facing frontage being a possible watching point. The drawn relations (no lane as either street; the clothier's shop fronting the side street) leave 8 corners with the handedness of the inked corner view and 14 without it. In the 1877–78 directory, 1 of them (2 without the handedness convention) has a clothier whose shop fronts the side street and licensed premises facing it across that street: Jamaica Street × Howard Street NE (and Jamaica Street × Argyle Street SW). The pair occurs at 3 of the 30 corners of the window, one of them the later Paisley's corner, which fails the drawn geometry; at least one survivor would show it 62% of the time by chance, and the evidence raises the odds that Rosa drew a real corner of this window by a factor of 1.2–1.5 (at most 1.7 in any variant). A first coding, which let a lane count as a street and the clothier front either street, also returned Argyle Street × Adam's Court Lane SE (82% by chance); the two requirements were added after it, and both codings are reported. Restricted to the openings recorded in 1857, the census returns version 1.4's corners and its single match. The PAISLEY'S sign is real but later than the story: of 38 documented photographs of the window (`research/photographs/`), the ten that show PAISLEY'S are from about 1884 or later and show the later Paisley's corner, with a wine merchant across Jamaica Street; none shows a JAMAICA ST. plate.
+Where did Don Rosa's ten-year-old Scrooge McDuck earn his first coin, and how often would a match that good turn up by chance? The paper (`paper/main.pdf`, version 1.6.1) tests the shoeshine scene of *The Last of the Clan McDuck* and *Of Ducks, Dimes and Destinies* against the Ordnance Survey 1:500 plans of Glasgow (1857–58, 1892–94) and sampled Post Office directories (1860–1906). Every corner of a declared window is censused (30 corners; 46 orientations tested, 14 untestable, every orientation read in the directory), every point of the facing frontage being a possible watching point. The drawn relations (no lane as either street; the clothier's shop fronting the side street) leave 8 corners with the handedness of the inked corner view and 14 without it. In the 1877–78 directory, 1 of them (2 without the handedness convention) has a clothier whose shop fronts the side street and licensed premises facing it across that street: Jamaica Street × Howard Street NE (and Jamaica Street × Argyle Street SW). The pair occurs at 3 of the 30 corners of the window, one of them the later Paisley's corner, which fails the drawn geometry; at least one survivor would show it 62% of the time by chance, and the evidence raises the odds that Rosa drew a real corner of this window by a factor of 1.2–1.5 (at most 1.7 in any variant). A first coding, which let a lane count as a street and the clothier front either street, also returned Argyle Street × Adam's Court Lane SE (82% by chance); the two requirements were added after it, and both codings are reported. Restricted to the openings recorded in 1857, the census returns version 1.4's corners and its single match. The PAISLEY'S sign is real but later than the story: of 38 documented photographs of the window (`research/photographs/`), the ten that show PAISLEY'S are from about 1884 or later and show the later Paisley's corner, with a wine merchant across Jamaica Street; none shows a JAMAICA ST. plate.
 
 ## Reproduce
 
@@ -24,7 +24,7 @@ Hand-entered inputs: street widths (`WIDTH` in `src/census.py`, read with the NL
 
 | Path | Content |
 |---|---|
-| `paper/` | `main.tex` (version 1.6), `anon.tex` (anonymised build), `refs.bib`, `main.pdf`, generated `tables/` and `figures/` |
+| `paper/` | `main.tex` (version 1.6.1), `anon.tex` (anonymised build), `refs.bib`, `main.pdf`, generated `tables/` and `figures/` |
 | `data/` | `openings_OS1857_Jamaica.csv` (62 openings), `corners_reference_OS1857.csv` (the 30 corners; the four added in version 1.5 are approximate), `trades_1877.csv` (directory trades at every orientation of the 30 corners: 46 tested, 14 untestable), `directory_lines.md` (all directory lines relied on, 1860–1906), `configurations_phase1.csv` (the 187 opening configurations of version 1.4, generated), `chance_multiverse.csv` (36 variants of the chance analysis, generated) |
 | `src/` | `geo.py` (local frame, facades, blocks), `census.py` (configurations, filters, documentary selection, sensitivity, LaTeX tables), `chance.py` (chance rates and Bayes factors, with SciPy), `figures.py` (the three deterministic figures) |
 | `evidence/` | `model_reading_sensitivity.md` (aggregate record of the model readings used up to version 1.4, no longer used as evidence), NLS viewer screenshots (with the layer's "Re-use: CC-BY (NLS)" header), `map_openings_OS1857.png` (hand-annotated extract of the NLS layer keying the opening codes), `PROVENANCE.md` |
@@ -33,7 +33,7 @@ Hand-entered inputs: street widths (`WIDTH` in `src/census.py`, read with the NL
 
 ## Status and publication
 
-Version 1.6 (15 November 2026) adds the photographs Rosa may have drawn from. Version 1.5 (13 November 2026) revised version 1.4, whose conclusion that Jamaica and Howard NE was the probable topographic basis of the scene is withdrawn; earlier drafts were withdrawn. Still to check: Rosa's photograph itself (plate 133 of Quennell's *The Day Before Yesterday*, 1978, and the 1914 plates in House and Morton, at full size), the rows of `data/trades_1877.csv` read in the OCR only (page images), the references marked provisional in the paper (printed pages), the coordinates of the four corners added in version 1.5 (to re-digitise on the NLS 1857 layer), and the 1877–78 valuation roll. The repository is archived on Zenodo; the concept DOI [10.5281/zenodo.24170392](https://doi.org/10.5281/zenodo.24170392) resolves to the latest version.
+Version 1.6.1 (16 November 2026) corrects the text of version 1.6 (15 November 2026), which added the photographs Rosa may have drawn from. Version 1.5 (13 November 2026) revised version 1.4, whose conclusion that Jamaica and Howard NE was the probable topographic basis of the scene is withdrawn; earlier drafts were withdrawn. Still to check: Rosa's photograph itself (plate 133 of Quennell's *The Day Before Yesterday*, 1978, and the 1914 plates in House and Morton, at full size), the rows of `data/trades_1877.csv` read in the OCR only (page images), the references marked provisional in the paper (printed pages), the coordinates of the four corners added in version 1.5 (to re-digitise on the NLS 1857 layer), and the 1877–78 valuation roll. The repository is archived on Zenodo; the concept DOI [10.5281/zenodo.24170392](https://doi.org/10.5281/zenodo.24170392) resolves to the latest version.
 
 The citable release archive contains the scientific inputs, code, aggregate sensitivity record and paper; raw AI prompts, conversations and editorial working reports are not distributed.
 
@@ -43,7 +43,7 @@ Maps: Ordnance Survey 1:500 town plans of Glasgow, surveyed 1857–58 and 1892�
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24170392.svg)](https://doi.org/10.5281/zenodo.24170392)
 
-Labarrère, M. (2026). *A Street Corner for a Dime: Don Rosa's Glasgow and the Chance of a Match* (preprint, version 1.6). Zenodo. https://doi.org/10.5281/zenodo.24255870
+Labarrère, M. (2026). *A Street Corner for a Dime: Don Rosa's Glasgow and the Chance of a Match* (preprint, version 1.6.1). Zenodo. https://doi.org/10.5281/zenodo.24170392
 
 ```bibtex
 @misc{labarrere2026streetcorner,
@@ -51,13 +51,13 @@ Labarrère, M. (2026). *A Street Corner for a Dime: Don Rosa's Glasgow and the C
   title     = {A Street Corner for a Dime: Don Rosa's Glasgow and the Chance of a Match},
   year      = {2026},
   publisher = {Zenodo},
-  note      = {Preprint, version 1.6},
-  doi       = {10.5281/zenodo.24255870},
-  url       = {https://doi.org/10.5281/zenodo.24255870}
+  note      = {Preprint, version 1.6.1},
+  doi       = {10.5281/zenodo.24170392},
+  url       = {https://doi.org/10.5281/zenodo.24170392}
 }
 ```
 
-The badge's concept DOI resolves to the latest published version; the citation above is version 1.6 ([10.5281/zenodo.24255870](https://doi.org/10.5281/zenodo.24255870)); version 1.5 is [10.5281/zenodo.24205196](https://doi.org/10.5281/zenodo.24205196), version 1.4 [10.5281/zenodo.24195132](https://doi.org/10.5281/zenodo.24195132). Author ORCID: [0009-0006-0822-3649](https://orcid.org/0009-0006-0822-3649).
+The badge's concept DOI resolves to the latest published version; version 1.5 is [10.5281/zenodo.24205196](https://doi.org/10.5281/zenodo.24205196), version 1.4 [10.5281/zenodo.24195132](https://doi.org/10.5281/zenodo.24195132). Author ORCID: [0009-0006-0822-3649](https://orcid.org/0009-0006-0822-3649).
 
 ## Licences
 
