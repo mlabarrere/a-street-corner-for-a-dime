@@ -8,9 +8,12 @@ authors:
     affiliation: Independent researcher
     orcid: "https://orcid.org/0009-0006-0822-3649"
 repository-code: "https://github.com/mlabarrere/a-street-corner-for-a-dime"
-url: "https://doi.org/10.5281/zenodo.24170392"
-doi: 10.5281/zenodo.24170392
+url: "https://doi.org/10.5281/zenodo.24279520"
+doi: 10.5281/zenodo.24279520
 identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24279520
+    description: "Version 1.6.1"
   - type: doi
     value: 10.5281/zenodo.24205196
     description: "Version 1.5"
@@ -56,6 +59,6 @@ preferred-citation:
   version: "1.6.1"
   publisher:
     name: Zenodo
-  doi: 10.5281/zenodo.24170392
-  url: "https://doi.org/10.5281/zenodo.24170392"
+  doi: 10.5281/zenodo.24279520
+  url: "https://doi.org/10.5281/zenodo.24279520"
   notes: "Preprint"

@@ -1,6 +1,6 @@
 # Changelog
 
-## Version 1.6.1 (16 November 2026)
+## Version 1.6.1 (16 November 2026; DOI 10.5281/zenodo.24279520)
 
 - Corrected text of version 1.6 (abstract, section 5, conclusion, acknowledgements, AI use statement). Findings, data and numbers are unchanged. Cite this version, not 1.6.
 
